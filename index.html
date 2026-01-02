@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #f5f5f5;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            display: block;
+            width: 200px;
+            padding: 15px;
+            margin: 15px auto;
+            background: #4285f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background: #3367d6;
+        }
+        .login {
+            background: #34a853;
+        }
+        .login:hover {
+            background: #2e8b47;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Create or Access Account</h2>
+        <a href="https://www.signupgenius.com/index.cfm?go=w.Welcome&prior=w.createSignUp&formName=registerForm" class="button">Sign Up</a>
+        <a href="https://www.signupgenius.com/index.cfm?go=w.Welcome&prior=w.createSignUp&formName=registerForm" class="button login">Log In</a>
+    </div>
+
+    <script>
+        // Both buttons go to the same URL
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', function() {
+                window.location.href = "https://www.signupgenius.com/index.cfm?go=w.Welcome&prior=w.createSignUp&formName=registerForm";
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
