@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | RoyzTech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --light: #ffffff;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --transition: all 0.3s ease;
+            --radius: 8px;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span:first-child {
+            color: var(--secondary);
+        }
+
+        .logo span:last-child {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .menu-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Navigation */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background-color: white;
+            z-index: 100;
+            transition: var(--transition);
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .nav-links {
+            list-style: none;
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 0.5rem;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.875rem 1.25rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+
+        .nav-links a i {
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        /* Legal Dropdown */
+        .legal-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #f8fafc;
+            border-radius: var(--radius);
+            margin: 0.25rem 1.25rem;
+        }
+
+        .legal-dropdown.active {
+            max-height: 250px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-dropdown a {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--gray);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .legal-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .legal-dropdown a:hover {
+            background-color: #e2e8f0;
+            color: var(--primary);
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+        }
+
+        .desktop-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .desktop-nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover {
+            color: var(--primary);
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Desktop Legal Dropdown */
+        .desktop-nav .nav-item {
+            position: relative;
+        }
+
+        .desktop-legal-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+        }
+
+        .desktop-legal-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .desktop-legal-dropdown a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .desktop-legal-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .desktop-legal-dropdown a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+
+        .desktop-nav .legal-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .legal-arrow {
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .desktop-nav .legal-link.active .legal-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Main Content */
+        main {
+            padding: 2rem 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .privacy-container {
+            background-color: white;
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .privacy-header {
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 1rem;
+        }
+
+        .privacy-header h1 {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .privacy-header .last-updated {
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .privacy-header .last-updated i {
+            color: var(--primary);
+        }
+
+        .privacy-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .privacy-section h2 {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .privacy-section h2 i {
+            color: var(--primary);
+            width: 24px;
+            text-align: center;
+        }
+
+        .privacy-section p,
+        .privacy-section ul {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .privacy-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .privacy-section li {
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+
+        .privacy-section li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: -1rem;
+        }
+
+        /* Important Notes */
+        .important-note {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            margin: 2rem 0;
+        }
+
+        .important-note h3 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .important-note p {
+            color: #78350f;
+            margin-bottom: 0;
+        }
+
+        /* Data Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .data-table th {
+            background-color: var(--light-gray);
+            color: var(--secondary);
+            font-weight: 600;
+            text-align: left;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8fafc;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2rem;
+            position: relative;
+        }
+
+        .footer-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Sitemap and Link Directory dots - VISIBLE */
+        .sitemap-dot {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 1;
+            transition: color 0.3s ease;
+            margin: 0 3px;
+        }
+
+        .sitemap-dot:hover {
+            color: var(--primary);
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+
+            .nav-overlay {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: block;
+            }
+
+            .privacy-container {
+                padding: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .privacy-container {
+                padding: 1.5rem;
+            }
+
+            .privacy-header h1 {
+                font-size: 1.75rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .data-table {
+                font-size: 0.85rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <span>Royz</span><span>Tech</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="legal-link" id="desktopLegalLink">
+                            <span>Legal</span>
+                            <i class="fas fa-chevron-down legal-arrow"></i>
+                        </a>
+                        <div class="desktop-legal-dropdown" id="desktopLegalDropdown">
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <a href="../disclaimer/index.html">Disclaimer</a>
+                            <a href="../term/index.html">Terms of Service</a>
+                            <a href="../cookies/index.html">Cookies Policy</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Overlay -->
+            <div class="nav-overlay" id="navOverlay"></div>
+
+            <!-- Mobile Navigation Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <div class="nav-header">
+                    <div class="nav-title">Navigation</div>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
+
+                    <li><a href="../about/index.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li>
+                        <a href="#" class="legal-link" id="mobileLegalLink">
+                            <span><i class="fas fa-balance-scale"></i> Legal</span>
+                            <i class="fas fa-chevron-down legal-arrow"></i>
+                        </a>
+                        <div class="legal-dropdown" id="mobileLegalDropdown">
+                            <a href="../privacy/index.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                            <a href="../disclaimer/index.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
+                            <a href="../term/index.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                            <a href="../cookies/index.html"><i class="fas fa-cookie-bite"></i> Cookies Policy</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact/index.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="privacy-container">
+            <div class="privacy-header">
+                <h1>Privacy Policy</h1>
+                <div class="last-updated">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Last Updated: January 20, 2024</span>
+                </div>
+            </div>
+
+            <!-- PRIVACY POLICY CONTENT -->
+            <div class="privacy-section">
+                <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+                <p>Welcome to RoyzTech ("we," "our," or "us"). We operate the website netspeedtest.online (the "Service").</p>
+                <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website. Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-database"></i> Information We Collect</h2>
+                <p>We collect several types of information from and about users of our website:</p>
+
+                <h3>Personal Information</h3>
+                <p>We may collect personal information that you voluntarily provide to us when you:</p>
+                <ul>
+                    <li>Contact us through our contact form</li>
+                    <li>Subscribe to our newsletter</li>
+                    <li>Leave comments on our articles</li>
+                    <li>Participate in surveys or promotions</li>
+                </ul>
+                <p>This information may include your name, email address, and any other information you choose to provide.</p>
+
+                <h3>Automatically Collected Information</h3>
+                <p>When you visit our website, we automatically collect certain information about your device and browsing activities:</p>
+                <ul>
+                    <li>IP address and general location</li>
+                    <li>Browser type and version</li>
+                    <li>Operating system</li>
+                    <li>Referring website</li>
+                    <li>Pages you view and time spent on pages</li>
+                    <li>Date and time of your visit</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-cookie-bite"></i> Cookies and Tracking Technologies</h2>
+                <p>We use cookies and similar tracking technologies to track activity on our Service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.</p>
+                <p>For detailed information about the cookies we use and your choices regarding cookies, please visit our <a href="../cookies/index.html">Cookies Policy</a>.</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Type of Data</th>
+                            <th>Purpose</th>
+                            <th>Legal Basis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Technical Data (IP, browser info)</td>
+                            <td>Website functionality and security</td>
+                            <td>Legitimate interest</td>
+                        </tr>
+                        <tr>
+                            <td>Usage Data (pages visited, time spent)</td>
+                            <td>Analytics and website improvement</td>
+                            <td>Legitimate interest</td>
+                        </tr>
+                        <tr>
+                            <td>Advertising Data</td>
+                            <td>Display relevant advertisements</td>
+                            <td>Consent (where required)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-ad"></i> Third-Party Services</h2>
+                <p>We use third-party services that may collect information about you:</p>
+                <ul>
+                    <li><strong>Google AdSense:</strong> We use Google AdSense to display advertisements. Google uses cookies to serve ads based on your prior visits to our website or other websites.</li>
+                    <li><strong>Google Analytics:</strong> We may use Google Analytics to analyze website traffic and user behavior (if implemented).</li>
+                    <li><strong>Web Hosting:</strong> Our hosting provider may collect server logs containing IP addresses.</li>
+                </ul>
+                <p>These third parties have their own privacy policies addressing how they use such information.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-shield-alt"></i> How We Use Your Information</h2>
+                <p>We use the information we collect in various ways, including to:</p>
+                <ul>
+                    <li>Provide, operate, and maintain our website</li>
+                    <li>Improve, personalize, and expand our website</li>
+                    <li>Understand and analyze how you use our website</li>
+                    <li>Develop new products, services, features, and functionality</li>
+                    <li>Communicate with you, either directly or through one of our partners</li>
+                    <li>Send you emails (if you subscribed)</li>
+                    <li>Find and prevent fraud</li>
+                    <li>Display relevant advertisements through Google AdSense</li>
+                </ul>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-share-alt"></i> Data Sharing and Disclosure</h2>
+                <p>We may share your information in the following situations:</p>
+                <ul>
+                    <li><strong>With Service Providers:</strong> We may share your information with third-party vendors who perform services on our behalf.</li>
+                    <li><strong>For Legal Reasons:</strong> We may disclose your information where required to do so by law or in response to valid requests by public authorities.</li>
+                    <li><strong>Business Transfers:</strong> If we are involved in a merger, acquisition, or asset sale, your information may be transferred.</li>
+                    <li><strong>With Your Consent:</strong> We may disclose your personal information for any other purpose with your consent.</li>
+                </ul>
+                <p>We do not sell, trade, or rent your personal identification information to others.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-lock"></i> Data Security</h2>
+                <p>We implement appropriate technical and organizational security measures designed to protect the security of any personal information we process. However, please also remember that we cannot guarantee that the internet itself is 100% secure. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-user-check"></i> Your Data Protection Rights</h2>
+                <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+                <ul>
+                    <li><strong>Right to Access:</strong> You have the right to request copies of your personal data.</li>
+                    <li><strong>Right to Rectification:</strong> You have the right to request correction of inaccurate information.</li>
+                    <li><strong>Right to Erasure:</strong> You have the right to request deletion of your personal data.</li>
+                    <li><strong>Right to Restrict Processing:</strong> You have the right to request restriction of processing your personal data.</li>
+                    <li><strong>Right to Object to Processing:</strong> You have the right to object to our processing of your personal data.</li>
+                    <li><strong>Right to Data Portability:</strong> You have the right to request transfer of your data to another organization.</li>
+                </ul>
+                <p>To exercise any of these rights, please contact us using the information provided below.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-globe"></i> International Data Transfers</h2>
+                <p>Your information, including personal data, may be transferred to — and maintained on — computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p>
+                <p>If you are located outside Bangladesh and choose to provide information to us, please note that we transfer the data to Bangladesh and process it there.</p>
+            </div>
+
+            <div class="important-note">
+                <h3><i class="fas fa-exclamation-circle"></i> Children's Privacy</h3>
+                <p>Our Service does not address anyone under the age of 13. We do not knowingly collect personally identifiable information from anyone under the age of 13. If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-sync-alt"></i> Changes to This Privacy Policy</h2>
+                <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+                <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-envelope"></i> Contact Us</h2>
+                <p>If you have any questions about this Privacy Policy, please contact us:</p>
+                <ul>
+                    <li>Through our <a href="../contact/index.html">contact form</a></li>
+                    <li>By email: sanvialevan2121@gmail.com</li>
+                </ul>
+                <p>This privacy policy was created to comply with GDPR, CCPA, and other data protection regulations.</p>
+            </div>
+            <!-- PRIVACY POLICY CONTENT ENDS -->
+        </div>
+    </main>
+
+    <!-- Footer with Sitemap and Link Directory Dots -->
+    <footer>
+        <p class="footer-text">
+            &copy; <span id="currentYear"></span> RoyzTech. All rights reserved.
+            <!-- VISIBLE SITEMAP AND LINK DIRECTORY DOTS -->
+            <a href="../sitemap.html" class="sitemap-dot" title="Sitemap">•</a>
+            <a href="../sitemap.html" class="sitemap-dot" title="All Pages">•</a>
+        </p>
+        <p class="footer-text" style="margin-top: 0.5rem; font-size: 0.85rem;">
+            This privacy policy meets GDPR, CCPA, and AdSense requirements.
+        </p>
+    </footer>
+
+    <script>
+        // Elements
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const navOverlay = document.getElementById('navOverlay');
+        const mobileLegalLink = document.getElementById('mobileLegalLink');
+        const mobileLegalDropdown = document.getElementById('mobileLegalDropdown');
+        const desktopLegalLink = document.getElementById('desktopLegalLink');
+        const desktopLegalDropdown = document.getElementById('desktopLegalDropdown');
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+
+            const icon = menuToggle.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+                document.body.style.overflow = 'hidden';
+            } else {
+                icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
+                mobileLegalDropdown.classList.remove('active');
+            }
+        }
+
+        // Toggle mobile legal dropdown
+        function toggleMobileLegalDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileLegalDropdown.classList.toggle('active');
+        }
+
+        // Desktop legal dropdown hover
+        desktopLegalLink.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) {
+                desktopLegalDropdown.classList.add('active');
+                desktopLegalLink.classList.add('active');
+            }
+        });
+
+        // Hide desktop legal dropdown when mouse leaves
+        document.querySelector('.nav-item').addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768) {
+                desktopLegalDropdown.classList.remove('active');
+                desktopLegalLink.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+            document.body.style.overflow = '';
+            mobileLegalDropdown.classList.remove('active');
+        }
+
+        // Event listeners
+        menuToggle.addEventListener('click', toggleMobileMenu);
+        navOverlay.addEventListener('click', closeMobileMenu);
+        mobileLegalLink.addEventListener('click', toggleMobileLegalDropdown);
+
+        // Handle navigation link clicks
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.classList.contains('legal-link')) return;
+                console.log(`Clicked: ${link.textContent.trim()}`);
+                if (window.innerWidth <= 768) closeMobileMenu();
+            });
+        });
+
+        // Handle legal dropdown item clicks
+        document.querySelectorAll('.legal-dropdown a, .desktop-legal-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                console.log(`Clicked: ${link.textContent.trim()}`);
+                if (window.innerWidth <= 768) closeMobileMenu();
+                if (window.innerWidth > 768) {
+                    desktopLegalDropdown.classList.remove('active');
+                    desktopLegalLink.classList.remove('active');
+                }
+            });
+        });
+
+        // Update copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+</body>
+</html>

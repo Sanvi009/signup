@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoyzTech - Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Keep all existing styles from your file */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --light: #ffffff;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --transition: all 0.3s ease;
+            --radius: 8px;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: var(--secondary);
+            line-height: 1.6;
+        }
+
+        /* Header - Keep all header styles */
+        header {
+            background-color: white;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span:first-child {
+            color: var(--secondary);
+        }
+
+        .logo span:last-child {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .menu-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Navigation - Keep all navigation styles */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background-color: white;
+            z-index: 100;
+            transition: var(--transition);
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .nav-header {
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .nav-links {
+            list-style: none;
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 0.5rem;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.875rem 1.25rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+
+        .nav-links a i {
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        /* Legal Dropdown */
+        .legal-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #f8fafc;
+            border-radius: var(--radius);
+            margin: 0.25rem 1.25rem;
+        }
+
+        .legal-dropdown.active {
+            max-height: 250px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-dropdown a {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.95rem;
+            color: var(--gray);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .legal-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .legal-dropdown a:hover {
+            background-color: #e2e8f0;
+            color: var(--primary);
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: none;
+        }
+
+        .desktop-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .desktop-nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover {
+            color: var(--primary);
+        }
+
+        .desktop-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Desktop Legal Dropdown */
+        .desktop-nav .nav-item {
+            position: relative;
+        }
+
+        .desktop-legal-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 220px;
+            background-color: white;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: var(--transition);
+        }
+
+        .desktop-legal-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .desktop-legal-dropdown a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--gray);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .desktop-legal-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .desktop-legal-dropdown a:hover {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+
+        .desktop-nav .legal-link {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .legal-arrow {
+            font-size: 0.7rem;
+            transition: var(--transition);
+        }
+
+        .desktop-nav .legal-link.active .legal-arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Main Content - UPDATED FOR BLOG LISTING */
+        main {
+            padding: 2rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        /* Blog Cards Container */
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Blog Card Styles */
+        .blog-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+        }
+
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            flex: 1;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+        }
+
+        .blog-date {
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .blog-date i {
+            color: var(--primary);
+        }
+
+        .blog-views {
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .blog-views i {
+            color: var(--primary);
+        }
+
+        .blog-category {
+            display: inline-block;
+            background-color: var(--light-gray);
+            color: var(--primary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            align-self: flex-start;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray);
+        }
+
+        .loading i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 3rem;
+            color: #dc2626;
+            background-color: #fef2f2;
+            border-radius: var(--radius);
+            border: 1px solid #fecaca;
+        }
+
+        /* No Posts Message */
+        .no-posts {
+            text-align: center;
+            padding: 3rem;
+            color: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8fafc;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        .footer-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+
+            .nav-overlay {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: block;
+            }
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 480px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .blog-image {
+                height: 180px;
+            }
+
+            .blog-content {
+                padding: 1.25rem;
+            }
+
+            .blog-title {
+                font-size: 1.1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <span>Royz</span><span>Tech</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../blog/index.html" class="active">Blog</a></li>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="legal-link" id="desktopLegalLink">
+                            <span>Legal</span>
+                            <i class="fas fa-chevron-down legal-arrow"></i>
+                        </a>
+                        <div class="desktop-legal-dropdown" id="desktopLegalDropdown">
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <a href="../disclaimer/index.html">Disclaimer</a>
+                            <a href="../term/index.html">Terms of Service</a>
+                            <a href="../cookies/index.html">Cookies Policy</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Overlay -->
+            <div class="nav-overlay" id="navOverlay"></div>
+
+            <!-- Mobile Navigation Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <div class="nav-header">
+                    <div class="nav-title">Navigation</div>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../blog/index.html" class="active"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="../about/index.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li>
+                        <a href="#" class="legal-link" id="mobileLegalLink">
+                            <span><i class="fas fa-balance-scale"></i> Legal</span>
+                            <i class="fas fa-chevron-down legal-arrow"></i>
+                        </a>
+                        <div class="legal-dropdown" id="mobileLegalDropdown">
+                            <a href="../privacy/index.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                            <a href="../disclaimer/index.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
+                            <a href="../term/index.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                            <a href="../cookies/index.html"><i class="fas fa-cookie-bite"></i> Cookies Policy</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact/index.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Our Blog</h1>
+            <p>Latest articles, tutorials, and tech insights</p>
+        </div>
+
+        <!-- Blog Container -->
+        <div class="blog-container" id="blogContainer">
+            <!-- Blog cards will be dynamically inserted here -->
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Loading blog posts...</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">&copy; <span id="currentYear"></span> RoyzTech. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Keep all existing JavaScript functions for navigation
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const navOverlay = document.getElementById('navOverlay');
+        const mobileLegalLink = document.getElementById('mobileLegalLink');
+        const mobileLegalDropdown = document.getElementById('mobileLegalDropdown');
+        const desktopLegalLink = document.getElementById('desktopLegalLink');
+        const desktopLegalDropdown = document.getElementById('desktopLegalDropdown');
+        const blogContainer = document.getElementById('blogContainer');
+
+        // Existing navigation functions
+        function toggleMobileMenu() {
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+                document.body.style.overflow = 'hidden';
+            } else {
+                icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
+                mobileLegalDropdown.classList.remove('active');
+            }
+        }
+
+        function toggleMobileLegalDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileLegalDropdown.classList.toggle('active');
+        }
+
+        // Desktop legal dropdown hover
+        desktopLegalLink.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 768) {
+                desktopLegalDropdown.classList.add('active');
+                desktopLegalLink.classList.add('active');
+            }
+        });
+
+        // Hide desktop legal dropdown when mouse leaves
+        document.querySelector('.nav-item').addEventListener('mouseleave', () => {
+            if (window.innerWidth > 768) {
+                desktopLegalDropdown.classList.remove('active');
+                desktopLegalLink.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+            document.body.style.overflow = '';
+            mobileLegalDropdown.classList.remove('active');
+        }
+
+        // Event listeners for navigation
+        menuToggle.addEventListener('click', toggleMobileMenu);
+        navOverlay.addEventListener('click', closeMobileMenu);
+        mobileLegalLink.addEventListener('click', toggleMobileLegalDropdown);
+
+        // Handle navigation link clicks
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.classList.contains('legal-link')) {
+                    return;
+                }
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Handle legal dropdown item clicks
+        document.querySelectorAll('.legal-dropdown a, .desktop-legal-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    closeMobileMenu();
+                }
+                if (window.innerWidth > 768) {
+                    desktopLegalDropdown.classList.remove('active');
+                    desktopLegalLink.classList.remove('active');
+                }
+            });
+        });
+
+        // Update copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // NEW: Load and display blog posts
+        async function loadBlogPosts() {
+            try {
+                const response = await fetch('blog.json');
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const posts = await response.json();
+
+                // Clear loading state
+                blogContainer.innerHTML = '';
+
+                if (posts.length === 0) {
+                    blogContainer.innerHTML = `
+                        <div class="no-posts">
+                            <i class="fas fa-newspaper" style="font-size: 3rem; margin-bottom: 1rem; color: var(--gray);"></i>
+                            <h3>No blog posts yet</h3>
+                            <p>Check back soon for new articles!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Create blog cards
+                posts.forEach(post => {
+                    const blogCard = document.createElement('article');
+                    blogCard.className = 'blog-card';
+
+                    blogCard.innerHTML = `
+                        <a href="${post.file}" class="blog-card-link">
+                            <div class="blog-image">
+                                <img src="${post.image}" alt="${post.title}" loading="lazy">
+                            </div>
+                            <div class="blog-content">
+                                ${post.category ? `<span class="blog-category">${post.category}</span>` : ''}
+                                <h3 class="blog-title">${post.title}</h3>
+                                <p class="blog-excerpt">${post.excerpt || ''}</p>
+                                <div class="blog-meta">
+                                    <div class="blog-date">
+                                        <i class="far fa-calendar-alt"></i>
+                                        <span>${formatDate(post.date)}</span>
+                                    </div>
+                                    <div class="blog-views">
+                                        <i class="far fa-eye"></i>
+                                        <span>${formatViews(post.views)}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    `;
+
+                    blogContainer.appendChild(blogCard);
+                });
+
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                blogContainer.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <h3>Error Loading Blog Posts</h3>
+                        <p>Unable to load blog content. Please try again later.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Helper function to format date
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        // Helper function to format views
+        function formatViews(views) {
+            if (views >= 1000) {
+                return (views / 1000).toFixed(1) + 'k';
+            }
+            return views.toString();
+        }
+
+        // Load blog posts when page loads
+        document.addEventListener('DOMContentLoaded', loadBlogPosts);
+    </script>
+</body>
+</html>

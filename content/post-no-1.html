@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Digital Minimalist's Toolkit: Replacing 12 Apps with 3 | RoyzTech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e293b;
+            --light: #ffffff;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --dark-gray: #334155;
+            --transition: all 0.3s ease;
+            --radius: 8px;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #ffffff;
+            color: var(--secondary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header - Mobile First */
+        header {
+            background-color: white;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            width: 100%;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span:first-child {
+            color: var(--secondary);
+        }
+
+        .logo span:last-child {
+            color: var(--primary);
+        }
+
+        /* Mobile Menu Button */
+        .menu-toggle {
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: var(--secondary);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .menu-toggle:hover {
+            background-color: var(--light-gray);
+        }
+
+        /* Navigation */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 320px;
+            height: 100%;
+            background-color: white;
+            z-index: 100;
+            transition: var(--transition);
+            padding: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .nav-header {
+            padding: 0 1rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 1rem;
+        }
+
+        .nav-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray);
+        }
+
+        .nav-links {
+            list-style: none;
+            flex: 1;
+            overflow-y: auto;
+            padding: 0 0.5rem;
+        }
+
+        .nav-links li {
+            margin-bottom: 0.25rem;
+        }
+
+        .nav-links a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--light-gray);
+            color: var(--primary);
+        }
+
+        .nav-links a i {
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        /* Legal Dropdown */
+        .legal-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #f8fafc;
+            border-radius: var(--radius);
+            margin: 0.25rem 1rem;
+        }
+
+        .legal-dropdown.active {
+            max-height: 250px;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legal-dropdown a {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .legal-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .legal-dropdown a:hover {
+            background-color: #e2e8f0;
+            color: var(--primary);
+        }
+
+        /* Desktop Navigation - Hidden on Mobile */
+        .desktop-nav {
+            display: none;
+        }
+
+        /* Main Content - Mobile First */
+        main {
+            flex: 1;
+            padding: 1.5rem 1rem;
+            max-width: 100%;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Blog Header - Mobile */
+        .blog-header {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .blog-date {
+            background-color: var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow);
+            font-weight: 500;
+        }
+
+        .blog-category {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .blog-title {
+            font-size: 1.75rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .blog-subtitle {
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            font-weight: 400;
+        }
+
+        /* Blog Content - Mobile */
+        .article-content {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .article-content h2 {
+            color: var(--secondary);
+            margin: 1.75rem 0 1rem;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .article-content h3 {
+            color: var(--secondary);
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.25rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.25rem;
+            color: var(--dark-gray);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 1rem 0 1rem 1.25rem;
+            color: var(--dark-gray);
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .article-content ul li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Image Styling - Mobile */
+        .blog-image-container {
+            margin: 1.5rem 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .blog-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-caption {
+            text-align: center;
+            padding: 0.75rem;
+            background-color: var(--light-gray);
+            color: var(--gray);
+            font-size: 0.9rem;
+            font-style: italic;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Highlight Box - Mobile */
+        .highlight-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 4px solid var(--primary);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 var(--radius) var(--radius) 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Table - Mobile */
+        .comparison-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .comparison-table {
+            width: 100%;
+            min-width: 500px;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 100%);
+            color: white;
+            padding: 0.875rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .comparison-table td {
+            padding: 0.875rem;
+            border-bottom: 1px solid #e2e8f0;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Conclusion - Mobile */
+        .conclusion {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #fcd34d;
+        }
+
+        .conclusion h3 {
+            color: #92400e;
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f8fafc;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .footer-text {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Tablet Styles (768px and up) */
+        @media (min-width: 768px) {
+            header {
+                padding: 1rem 2rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .menu-toggle {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 2rem;
+                max-width: 1200px;
+            }
+
+            .blog-header {
+                padding: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.5rem;
+                font-size: 0.95rem;
+            }
+
+            .blog-title {
+                font-size: 2.25rem;
+            }
+
+            .blog-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .article-content {
+                font-size: 1.05rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.75rem;
+            }
+
+            .blog-image-container {
+                margin: 2rem 0;
+            }
+
+            .highlight-box {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .conclusion {
+                padding: 2rem;
+                margin: 2.5rem 0;
+            }
+        }
+
+        /* Desktop Styles (1024px and up) */
+        @media (min-width: 1024px) {
+            /* Hide mobile menu button, show desktop nav */
+            .menu-toggle {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: none;
+            }
+
+            .nav-overlay {
+                display: none;
+            }
+
+            .desktop-nav {
+                display: block;
+            }
+
+            .desktop-nav ul {
+                list-style: none;
+                display: flex;
+                gap: 2rem;
+                align-items: center;
+            }
+
+            .desktop-nav a {
+                text-decoration: none;
+                color: var(--secondary);
+                font-weight: 500;
+                padding: 0.5rem 0;
+                position: relative;
+                transition: var(--transition);
+            }
+
+            .desktop-nav a:hover {
+                color: var(--primary);
+            }
+
+            .desktop-nav a::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: var(--primary);
+                transition: var(--transition);
+            }
+
+            .desktop-nav a:hover::after {
+                width: 100%;
+            }
+
+            /* Desktop Legal Dropdown */
+            .desktop-nav .nav-item {
+                position: relative;
+            }
+
+            .desktop-legal-dropdown {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 220px;
+                background-color: white;
+                box-shadow: var(--shadow);
+                border-radius: var(--radius);
+                z-index: 10;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: var(--transition);
+            }
+
+            .desktop-legal-dropdown.active {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+
+            .desktop-legal-dropdown a {
+                display: block;
+                padding: 0.75rem 1rem;
+                color: var(--gray);
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .desktop-legal-dropdown a:last-child {
+                border-bottom: none;
+            }
+
+            .desktop-legal-dropdown a:hover {
+                background-color: var(--light-gray);
+                color: var(--primary);
+            }
+
+            .desktop-nav .legal-link {
+                display: flex;
+                align-items: center;
+                gap: 0.25rem;
+            }
+
+            .legal-arrow {
+                font-size: 0.7rem;
+                transition: var(--transition);
+            }
+
+            .desktop-nav .legal-link.active .legal-arrow {
+                transform: rotate(180deg);
+            }
+
+            /* Full width desktop layout */
+            main {
+                padding: 2.5rem 3rem;
+                max-width: 1400px;
+            }
+
+            .blog-header {
+                padding: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .blog-title {
+                font-size: 2.75rem;
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .blog-subtitle {
+                font-size: 1.4rem;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .article-content {
+                font-size: 1.1rem;
+                max-width: 900px;
+                margin: 0 auto;
+            }
+
+            .article-content h2 {
+                font-size: 2rem;
+            }
+
+            .article-content h2::after {
+                width: 70px;
+            }
+
+            .blog-image-container {
+                margin: 2.5rem 0;
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .highlight-box {
+                padding: 2rem;
+                margin: 2.5rem 0;
+                max-width: 900px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .conclusion {
+                padding: 2.5rem;
+                margin: 3rem auto;
+                max-width: 900px;
+            }
+        }
+
+        /* Large Desktop Styles (1400px and up) */
+        @media (min-width: 1400px) {
+            .header-container {
+                max-width: 1400px;
+            }
+
+            main {
+                padding: 3rem 4rem;
+            }
+        }
+
+        /* Mobile-specific improvements */
+        @media (max-width: 767px) {
+            /* Prevent horizontal scrolling */
+            body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+
+            /* Improve touch targets */
+            .nav-links a {
+                min-height: 44px;
+            }
+
+            .legal-dropdown a {
+                min-height: 44px;
+            }
+
+            .menu-toggle {
+                min-width: 44px;
+                min-height: 44px;
+            }
+
+            /* Better text readability on mobile */
+            .article-content p {
+                text-align: justify;
+                hyphens: auto;
+            }
+
+            /* Adjust table for mobile */
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 360px) {
+            .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .blog-subtitle {
+                font-size: 1rem;
+            }
+
+            .article-content {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="../index.html" class="logo">
+                <span>Royz</span><span>Tech</span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="../about/index.html">About</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="legal-link" id="desktopLegalLink">
+                            <span>Legal</span>
+                            <i class="fas fa-chevron-down legal-arrow"></i>
+                        </a>
+                        <div class="desktop-legal-dropdown" id="desktopLegalDropdown">
+                            <a href="../privacy/index.html">Privacy Policy</a>
+                            <a href="../disclaimer/index.html">Disclaimer</a>
+                            <a href="../term/index.html">Terms of Service</a>
+                            <a href="../cookies/index.html">Cookies Policy</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Overlay -->
+            <div class="nav-overlay" id="navOverlay"></div>
+
+            <!-- Mobile Navigation Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <div class="nav-header">
+                    <div class="nav-title">Navigation</div>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="../blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="../about/index.html"><i class="fas fa-info-circle"></i> About</a></li>
+                    <li>
+                        <a href="#" class="legal-link" id="mobileLegalLink">
+                            <span><i class="fas fa-balance-scale"></i> Legal</span>
+                            <i class="fas fa-chevron-down legal-arrow"></i>
+                        </a>
+                        <div class="legal-dropdown" id="mobileLegalDropdown">
+                            <a href="../privacy/index.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+                            <a href="../disclaimer/index.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
+                            <a href="../term/index.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
+                            <a href="../cookies/index.html"><i class="fas fa-cookie-bite"></i> Cookies Policy</a>
+                        </div>
+                    </li>
+                    <li><a href="../contact/index.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="blog-header">
+            <div class="blog-meta">
+                <span class="blog-date">January 31, 2026</span>
+                <span class="blog-category">Productivity • Digital Minimalism</span>
+                <span>8 min read</span>
+            </div>
+            <h1 class="blog-title">The Digital Minimalist's Toolkit: How I Replaced 12 Apps with 3</h1>
+            <p class="blog-subtitle">And rediscovered focus in an age of digital clutter</p>
+        </div>
+
+        <article class="article-content">
+            <h2>The App Overload Epidemic</h2>
+            <p>As a tech enthusiast, I fell into the common trap: downloading every new productivity app that promised to revolutionize my workflow. At my peak, I was juggling 12 different applications, each serving a specialized purpose.</p>
+
+            <p>What started as an attempt to optimize turned into digital chaos. The constant notifications, context switching between different interfaces, and the mental energy spent remembering which app held what information became overwhelming.</p>
+
+            <div class="blog-image-container">
+                <img src="images/1.jpeg" alt="Digital Minimalism - App consolidation reduces cognitive load" class="blog-image" loading="lazy">
+                <div class="image-caption">Visualizing the transition from app chaos to focused productivity</div>
+            </div>
+
+            <h2>The Breaking Point</h2>
+            <p>Last month, I conducted a time audit that revealed shocking results: I was spending nearly 3 hours each week just managing and switching between these tools. The subscription costs totaled $47 monthly. Most importantly, the cognitive load was fracturing my ability to concentrate.</p>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-lightbulb"></i> Core Insight</h4>
+                <p>Digital minimalism isn't about deprivation—it's about intentionality. Each tool in your digital ecosystem should justify its presence through unique value.</p>
+            </div>
+
+            <h2>The Consolidation Blueprint</h2>
+            <p>I established three criteria for my new minimalist toolkit:</p>
+            <ul>
+                <li><strong>Multi-functional:</strong> Must serve at least 3-4 core functions</li>
+                <li><strong>Interoperable:</strong> Should work seamlessly with other tools</li>
+                <li><strong>Frictionless:</strong> Minimal learning curve and intuitive interface</li>
+            </ul>
+
+            <div class="comparison-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Previous Apps</th>
+                            <th>New Tools</th>
+                            <th>Key Benefits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Evernote, Todoist, Trello</td>
+                            <td><strong>Obsidian</strong></td>
+                            <td>Linked knowledge system, local storage</td>
+                        </tr>
+                        <tr>
+                            <td>Google Calendar, Slack</td>
+                            <td><strong>Craft</strong></td>
+                            <td>Integrated calendar and collaboration</td>
+                        </tr>
+                        <tr>
+                            <td>Dropbox, 1Password</td>
+                            <td><strong>Apple Ecosystem</strong></td>
+                            <td>Seamless sync and security</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Tool 1: Obsidian – The Digital Brain</h3>
+            <p>Obsidian replaced my separate note-taking, task management, and project planning tools. Its markdown-based approach and bidirectional linking created a web of connected ideas that transformed how I work.</p>
+
+            <h3>Tool 2: Craft – The Collaboration Hub</h3>
+            <p>Craft absorbed my calendar, team communication, and documentation needs. The beauty lies in its block-based editor that works equally well for meeting notes, project documentation, and personal journaling.</p>
+
+            <div class="blog-image-container">
+                <img src="images/2.png" alt="Three essential apps workflow diagram showing integration" class="blog-image" loading="lazy">
+                <div class="image-caption">The integrated workflow system using three core applications</div>
+            </div>
+
+            <h3>Tool 3: Apple Ecosystem – The Productivity Foundation</h3>
+            <p>By fully committing to Apple's integrated suite (Notes, Reminders, Calendar, Keychain, iCloud), I eliminated redundancy. The seamless sync across devices created a frictionless environment.</p>
+
+            <h2>The Results: 30 Days Later</h2>
+            <p>The transformation was both quantitative and qualitative:</p>
+            <ol>
+                <li><strong>Focus Time:</strong> Increased from 2.5 to 4.5 hours daily</li>
+                <li><strong>Costs:</strong> Reduced from $47 to $10 monthly</li>
+                <li><strong>Setup Time:</strong> Eliminated weekly tool maintenance</li>
+                <li><strong>Decision Fatigue:</strong> Significantly reduced</li>
+            </ol>
+
+            <h2>Implementing Your Own Minimalist System</h2>
+            <p>If this resonates with you, here's a practical approach:</p>
+
+            <div class="highlight-box">
+                <h4><i class="fas fa-clipboard-list"></i> 5-Step Implementation Guide</h4>
+                <ol>
+                    <li><strong>Audit:</strong> List every digital tool you use</li>
+                    <li><strong>Categorize:</strong> Group similar functions together</li>
+                    <li><strong>Evaluate:</strong> Identify multi-purpose tools</li>
+                    <li><strong>Migrate:</strong> Move data gradually over 2-3 weeks</li>
+                    <li><strong>Optimize:</strong> Refine based on actual usage</li>
+                </ol>
+            </div>
+
+            <div class="conclusion">
+                <h3>The Unlikely Truth About Digital Productivity</h3>
+                <p>The most powerful productivity tool isn't another app or feature—it's <strong>undivided attention</strong>. By reducing my digital toolkit from 12 specialized apps to 3 versatile ones, I've eliminated decision fatigue and reclaimed mental space.</p>
+                <p>In an age of infinite digital options, true productivity often comes from subtraction rather than addition. Your tools should serve your workflow, not define it.</p>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p class="footer-text">&copy; <span id="currentYear"></span> RoyzTech. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Elements
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const navOverlay = document.getElementById('navOverlay');
+        const mobileLegalLink = document.getElementById('mobileLegalLink');
+        const mobileLegalDropdown = document.getElementById('mobileLegalDropdown');
+        const desktopLegalLink = document.getElementById('desktopLegalLink');
+        const desktopLegalDropdown = document.getElementById('desktopLegalDropdown');
+
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+
+            // Update menu icon
+            const icon = menuToggle.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+                document.body.style.overflow = 'hidden';
+            } else {
+                icon.className = 'fas fa-bars';
+                document.body.style.overflow = '';
+                // Close dropdown when closing menu
+                mobileLegalDropdown.classList.remove('active');
+            }
+        }
+
+        // Toggle mobile legal dropdown
+        function toggleMobileLegalDropdown(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            mobileLegalDropdown.classList.toggle('active');
+        }
+
+        // Desktop legal dropdown hover
+        desktopLegalLink.addEventListener('mouseenter', () => {
+            if (window.innerWidth > 1024) {
+                desktopLegalDropdown.classList.add('active');
+                desktopLegalLink.classList.add('active');
+            }
+        });
+
+        // Hide desktop legal dropdown when mouse leaves
+        const navItem = document.querySelector('.nav-item');
+        if (navItem) {
+            navItem.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 1024) {
+                    desktopLegalDropdown.classList.remove('active');
+                    desktopLegalLink.classList.remove('active');
+                }
+            });
+        }
+
+        // Close mobile menu
+        function closeMobileMenu() {
+            mobileNav.classList.remove('active');
+            navOverlay.classList.remove('active');
+            menuToggle.querySelector('i').className = 'fas fa-bars';
+            document.body.style.overflow = '';
+            mobileLegalDropdown.classList.remove('active');
+        }
+
+        // Event listeners
+        menuToggle.addEventListener('click', toggleMobileMenu);
+        navOverlay.addEventListener('click', closeMobileMenu);
+        mobileLegalLink.addEventListener('click', toggleMobileLegalDropdown);
+
+        // Handle all navigation link clicks
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Don't prevent default for Legal dropdown toggles
+                if (link.classList.contains('legal-link')) {
+                    return;
+                }
+
+                // Close mobile menu on mobile
+                if (window.innerWidth <= 1024) {
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Handle legal dropdown item clicks
+        document.querySelectorAll('.legal-dropdown a, .desktop-legal-dropdown a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Close mobile menu on mobile
+                if (window.innerWidth <= 1024) {
+                    closeMobileMenu();
+                }
+
+                // Close desktop dropdown
+                if (window.innerWidth > 1024) {
+                    desktopLegalDropdown.classList.remove('active');
+                    desktopLegalLink.classList.remove('active');
+                }
+            });
+        });
+
+        // Update copyright year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on resize if switching to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024 && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Image lazy loading
+        document.querySelectorAll('.blog-image').forEach(img => {
+            img.loading = 'lazy';
+        });
+
+        // Prevent scroll when menu is open on mobile
+        document.addEventListener('touchmove', function(e) {
+            if (mobileNav.classList.contains('active')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Improved touch handling for mobile
+        let lastTap = 0;
+        document.addEventListener('touchend', function(e) {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTap;
+            if (tapLength < 500 && tapLength > 0) {
+                e.preventDefault();
+            }
+            lastTap = currentTime;
+        });
+    </script>
+</body>
+</html>
