@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://brainloom.online/sitemap.xml
+Sitemap: https://netspeedtest.online/sitemap.xml
+Sitemap: https://netspeedtest.online/sitemap.html
