@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://netspeedtest.online/sitemap.xml
-Sitemap: https://netspeedtest.online/sitemap.html
