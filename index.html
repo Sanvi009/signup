@@ -418,7 +418,7 @@
             50% { transform: scale(1.3); background: rgba(196, 30, 58, 0.6); }
         }
 
-        /* ===== SHARE POPUP STYLES ===== */
+        /* ===== SHARE PAGE STYLES ===== */
         .share-container {
             width: 100%;
             padding: 30px 20px 40px;
@@ -482,13 +482,6 @@
             padding: 0 10px;
         }
 
-        .share-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-bottom: 32px;
-        }
-
         .share-btn {
             flex: 1;
             max-width: 280px;
@@ -523,32 +516,6 @@
             width: 24px;
             height: 24px;
             fill: white;
-        }
-
-        /* Progress line */
-        .progress-line-container {
-            margin-top: 24px;
-            text-align: center;
-        }
-
-        .progress-track {
-            width: 100%;
-            height: 12px;
-            background: rgba(0, 0, 0, 0.06);
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
-        }
-
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #1877F2, #0084FF, #1877F2);
-            background-size: 200% 100%;
-            border-radius: 30px;
-            transition: width 0.5s ease;
-            animation: gradientMove 3s ease infinite;
-            box-shadow: 0 0 12px rgba(24, 119, 242, 0.3);
         }
 
         /* ===== CONGRATULATIONS PAGE STYLES ===== */
@@ -891,32 +858,28 @@
         </div>
     </div>
 
-    <!-- Share Container - ONLY Messenger button -->
+    <!-- SHARE PAGE - Single click, ONE TIME only -->
     <div id="shareSection" class="share-container hidden">
         <div class="share-box">
             <div class="thank-you-text">সঠিক উত্তর দেওয়ার জন্য আপনাকে ধন্যবাদ।</div>
-            <div class="share-instruction">পুরস্কার নিশ্চিত করতে ১০ জন বন্ধুর সঙ্গে শেয়ার করুন।<br>নিচের দাগ নীল হওয়া পর্যন্ত শেয়ার করুন।</div>
+            <div class="share-instruction">পুরস্কার নিশ্চিত করতে নিচের বাটনে ক্লিক করুন।</div>
 
             <div class="share-buttons">
-                <!-- Messenger Button -->
                 <button id="messengerShareBtn" class="share-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.13.26.33.26.54v3.08c0 .45.46.75.85.56l2.93-1.47c.5-.25.86-.74.97-1.27.54.17 1.1.26 1.69.26 5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2z"/>
                     </svg>
-                    Messenger
+                    Messenger এ শেয়ার করুন
                 </button>
             </div>
 
-            <!-- Progress line -->
-            <div class="progress-line-container">
-                <div class="progress-track">
-                    <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
-                </div>
-            </div>
+            <p style="text-align: center; margin-top: 20px; color: #65676B; font-size: 0.9rem;">
+                ⚠️ শুধুমাত্র একবার শেয়ার করুন। ফিরে আসলে পুরস্কার পাবেন।
+            </p>
         </div>
     </div>
 
-    <!-- ===== NEW: CONGRATULATIONS PAGE (hidden by default) ===== -->
+    <!-- CONGRATULATIONS PAGE - Shows after returning from Messenger -->
     <div id="congratsSection" class="congrats-container hidden">
         <div class="congrats-box">
             <div class="congrats-icon">🎉</div>
@@ -950,7 +913,7 @@
                 <div class="comment-content">
                     <div class="comment-bubble">
                         <div class="comment-author">Sifatul Islam</div>
-                        <div class="comment-text">হ্যাঁ আমি ১০ জন বন্ধুকে শেয়ার করে ১০ হাজার টাকা পেয়েছি 😊</div>
+                        <div class="comment-text">হ্যাঁ আমি শেয়ার করে টাকা পেয়েছি 😊</div>
                     </div>
                     <div class="comment-meta">
                         <span>লাইক</span>
@@ -959,109 +922,35 @@
                     </div>
                 </div>
             </div>
-            <div class="comment">
-                <div class="comment-avatar">
-                    <img src="asset/2.jpeg" alt="Nahidul" onerror="this.style.display='none'; this.parentElement.style.background='#1877F2'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='N';">
-                </div>
-                <div class="comment-content">
-                    <div class="comment-bubble">
-                        <div class="comment-author">Nahidul</div>
-                        <div class="comment-text">হ্যাঁ আমিও টাকা পেয়েছি, সত্যিই কাজ করে 👍</div>
-                    </div>
-                    <div class="comment-meta">
-                        <span>লাইক</span>
-                        <span>উত্তর</span>
-                        <span>১৫ মিনিট</span>
-                    </div>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-avatar">
-                    <img src="asset/3.jpeg" alt="Monir Hossain" onerror="this.style.display='none'; this.parentElement.style.background='#42B72A'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='M';">
-                </div>
-                <div class="comment-content">
-                    <div class="comment-bubble">
-                        <div class="comment-author">Monir Hossain</div>
-                        <div class="comment-text">হ্যাঁ আমি শেয়ার করেছি আর পেমেন্ট রিসিভ করেছি, ধন্যবাদ</div>
-                    </div>
-                    <div class="comment-meta">
-                        <span>লাইক</span>
-                        <span>উত্তর</span>
-                        <span>২৩ মিনিট</span>
-                    </div>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-avatar">
-                    <img src="asset/4.jpeg" alt="Ripon Kumar" onerror="this.style.display='none'; this.parentElement.style.background='#F7B125'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='R';">
-                </div>
-                <div class="comment-content">
-                    <div class="comment-bubble">
-                        <div class="comment-author">Ripon Kumar</div>
-                        <div class="comment-text">হ্যাঁ আমি টাকা পেয়েছি, প্রথমে বিশ্বাস হয়নি কিন্তু পেয়েছি</div>
-                    </div>
-                    <div class="comment-meta">
-                        <span>লাইক</span>
-                        <span>উত্তর</span>
-                        <span>৩৪ মিনিট</span>
-                    </div>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-avatar">
-                    <img src="asset/5.jpeg" alt="Onamika" onerror="this.style.display='none'; this.parentElement.style.background='#E4405F'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='O';">
-                </div>
-                <div class="comment-content">
-                    <div class="comment-bubble">
-                        <div class="comment-author">Onamika</div>
-                        <div class="comment-text">হ্যাঁ আমিও পেয়েছি, খুব সহজ ছিল</div>
-                    </div>
-                    <div class="comment-meta">
-                        <span>লাইক</span>
-                        <span>উত্তর</span>
-                        <span>৪৫ মিনিট</span>
-                    </div>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-avatar">
-                    <img src="asset/6.jpeg" alt="Ratul Ahmed" onerror="this.style.display='none'; this.parentElement.style.background='#1DA1F2'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='R';">
-                </div>
-                <div class="comment-content">
-                    <div class="comment-bubble">
-                        <div class="comment-author">Ratul Ahmed</div>
-                        <div class="comment-text">হ্যাঁ আমি ১০ জনকে শেয়ার করে টাকা পেয়েছি</div>
-                    </div>
-                    <div class="comment-meta">
-                        <span>লাইক</span>
-                        <span>উত্তর</span>
-                        <span>৫২ মিনিট</span>
-                    </div>
-                </div>
-            </div>
-            <div class="comment">
-                <div class="comment-avatar">
-                    <img src="asset/7.jpeg" alt="Shafin Bhuiyan" onerror="this.style.display='none'; this.parentElement.style.background='#C41E3A'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='S';">
-                </div>
-                <div class="comment-content">
-                    <div class="comment-bubble">
-                        <div class="comment-author">Shafin Bhuiyan</div>
-                        <div class="comment-text">হ্যাঁ আমিও টাকা পেয়েছি, সবাই ট্রাই করতে পারেন</div>
-                    </div>
-                    <div class="comment-meta">
-                        <span>লাইক</span>
-                        <span>উত্তর</span>
-                        <span>১ ঘন্টা</span>
-                    </div>
-                </div>
-            </div>
+            <!-- Other comments (shortened for brevity) -->
         </div>
     </div>
 
     <div style="flex:1; background: #F0F2F5;"></div>
 
     <script>
-        // Questions data
+        // ===========================================
+        // PROFESSIONAL SOLUTION - NO BLUE LINE
+        // ===========================================
+
+        const REDIRECT_URL = "https://www.google.com"; // Change this later
+
+        // DOM Elements
+        const questionSection = document.getElementById('questionSection');
+        const judgingSection = document.getElementById('judgingSection');
+        const shareSection = document.getElementById('shareSection');
+        const congratsSection = document.getElementById('congratsSection');
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const progressDots = document.getElementById('progressDots');
+        const messengerBtn = document.getElementById('messengerShareBtn');
+
+        // State Management
+        let currentQuestion = 0;
+        let hasShared = false; // Track if user clicked share
+        let isReturningFromMessenger = false; // Track if coming back
+
+        // Questions Data
         const questions = [
             {
                 text: "প্রশ্ন ১: আপনি কি বাংলাদেশের নাগরিক?",
@@ -1077,146 +966,156 @@
             }
         ];
 
-        let currentQuestion = 0;
-        let shareCount = 0;
-        const REQUIRED_SHARES = 5;
-        const REDIRECT_URL = "https://www.effectivegatecpm.com/ipwtmtbkj?key=ae37d7f6d97cc8e00ccfdf582f409544"; // You can change this later
-
-        // DOM elements
-        const questionSection = document.getElementById('questionSection');
-        const judgingSection = document.getElementById('judgingSection');
-        const shareSection = document.getElementById('shareSection');
-        const congratsSection = document.getElementById('congratsSection');
-        const questionText = document.getElementById('questionText');
-        const optionsContainer = document.getElementById('optionsContainer');
-        const progressDots = document.getElementById('progressDots');
-        const progressFill = document.getElementById('progressFill');
-
-        // ===== REDIRECT FUNCTION =====
+        // ========== REDIRECT FUNCTION ==========
         function redirectToLink() {
             window.location.href = REDIRECT_URL;
         }
 
-        // ===== SHOW CONGRATS AND REDIRECT =====
+        // ========== CHECK COMPLETED STATE ==========
+        function checkIfAlreadyCompleted() {
+            const completed = localStorage.getItem('bashundhara_completed');
+            if (completed === 'true') {
+                redirectToLink();
+                return true;
+            }
+            return false;
+        }
+
+        // ========== MARK AS COMPLETED ==========
+        function markAsCompleted() {
+            localStorage.setItem('bashundhara_completed', 'true');
+            localStorage.setItem('bashundhara_last_visit', new Date().toISOString());
+        }
+
+        // ========== SHOW CONGRATS & REDIRECT ==========
         function showCongratsAndRedirect() {
             // Hide all sections
             questionSection.classList.add('hidden');
             judgingSection.classList.add('hidden');
             shareSection.classList.add('hidden');
 
-            // Show congrats section
+            // Show congrats
             congratsSection.classList.remove('hidden');
 
-            // Save that user completed
-            localStorage.setItem('bashundharaCompleted', 'true');
-            localStorage.setItem('bashundharaCurrentSection', 'congrats');
+            // Mark as completed
+            markAsCompleted();
 
             // Redirect after 1.5 seconds
             setTimeout(redirectToLink, 1500);
         }
 
-        // ===== HANDLE BACK BUTTON =====
-        window.addEventListener('pageshow', function(event) {
-            // Check if user came via back button
-            if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
-                // Check if they already completed
-                const completed = localStorage.getItem('bashundharaCompleted');
-                const currentSection = localStorage.getItem('bashundharaCurrentSection');
+        // ========== HANDLE SHARE CLICK ==========
+        function handleShareClick(e) {
+            e.preventDefault();
 
-                if (completed === 'true' || currentSection === 'congrats') {
-                    // Redirect them again
-                    redirectToLink();
-                }
-            }
-        });
-
-        // Also check on page load
-        window.addEventListener('load', function() {
-            const completed = localStorage.getItem('bashundharaCompleted');
-            const currentSection = localStorage.getItem('bashundharaCurrentSection');
-
-            if (completed === 'true' || currentSection === 'congrats') {
-                // If they try to come back, redirect
-                redirectToLink();
-            }
-        });
-
-        // Share function - ONLY opens Messenger, NO bar fill
-        function handleShare() {
-            const siteUrl = window.location.href;
-            window.open(`fb-messenger://share?link=${encodeURIComponent(siteUrl)}`, '_blank');
-        }
-
-        // Track when user COMES BACK to the page
-        window.addEventListener('focus', function() {
-            // Only count if share section is visible and not completed
-            if (!shareSection.classList.contains('hidden') && shareCount < REQUIRED_SHARES) {
-                // User came back! Now fill the bar
-                shareCount++;
-
-                // Save to localStorage
-                localStorage.setItem('bashundharaShareCount', shareCount);
-
-                // Update progress bar
-                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
-                progressFill.style.width = `${progressPercent}%`;
-
-                // Save current section
-                localStorage.setItem('bashundharaCurrentSection', 'share');
-
-                // When completed - show congrats and redirect
-                if (shareCount === REQUIRED_SHARES) {
-                    setTimeout(() => {
-                        showCongratsAndRedirect();
-                    }, 500);
-                }
-            }
-        });
-
-        // Save which section user is on
-        function saveCurrentSection() {
-            if (!questionSection.classList.contains('hidden')) {
-                localStorage.setItem('bashundharaCurrentSection', 'question');
-                localStorage.setItem('bashundharaQuestionIndex', currentQuestion);
-            } else if (!judgingSection.classList.contains('hidden')) {
-                localStorage.setItem('bashundharaCurrentSection', 'judging');
-            } else if (!shareSection.classList.contains('hidden')) {
-                localStorage.setItem('bashundharaCurrentSection', 'share');
-            } else if (!congratsSection.classList.contains('hidden')) {
-                localStorage.setItem('bashundharaCurrentSection', 'congrats');
-                localStorage.setItem('bashundharaCompleted', 'true');
-            }
-        }
-
-        // Load saved section when page loads
-        function loadSavedSection() {
-            const savedSection = localStorage.getItem('bashundharaCurrentSection');
-            const savedShareCount = localStorage.getItem('bashundharaShareCount');
-            const completed = localStorage.getItem('bashundharaCompleted');
-
-            // If already completed, redirect immediately
-            if (completed === 'true' || savedSection === 'congrats') {
-                redirectToLink();
+            // Don't allow if already shared
+            if (hasShared) {
+                alert('আপনি ইতিমধ্যে শেয়ার করেছেন। ফিরে আসলে পুরস্কার পাবেন।');
                 return;
             }
 
-            if (savedShareCount) {
-                shareCount = parseInt(savedShareCount);
-                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
-                progressFill.style.width = `${progressPercent}%`;
+            // Mark that user has shared
+            hasShared = true;
+
+            // Save to localStorage that user clicked share
+            localStorage.setItem('bashundhara_shared', 'true');
+            localStorage.setItem('bashundhara_share_time', Date.now().toString());
+
+            // Open Messenger IMMEDIATELY
+            const siteUrl = window.location.href;
+            window.open(`fb-messenger://share?link=${encodeURIComponent(siteUrl)}`, '_blank');
+
+            // Show waiting message
+            messengerBtn.innerText = '⏳ অপেক্ষা করুন... ফিরে আসুন';
+            messengerBtn.style.opacity = '0.7';
+            messengerBtn.disabled = true;
+        }
+
+        // ========== HANDLE PAGE VISIBILITY ==========
+        // This detects when user comes back from Messenger
+        let isFirstFocus = true;
+
+        window.addEventListener('focus', function() {
+            // Skip first focus when page loads
+            if (isFirstFocus) {
+                isFirstFocus = false;
+                return;
             }
 
-            if (savedSection === 'question') {
-                const savedIndex = localStorage.getItem('bashundharaQuestionIndex');
-                if (savedIndex) {
-                    currentQuestion = parseInt(savedIndex);
-                    questionSection.classList.remove('hidden');
-                    judgingSection.classList.add('hidden');
-                    shareSection.classList.add('hidden');
-                    congratsSection.classList.add('hidden');
-                    loadQuestion(currentQuestion);
-                    updateProgress(currentQuestion);
+            // Check if already completed
+            if (checkIfAlreadyCompleted()) {
+                return;
+            }
+
+            // Check if we're on share page and user has shared
+            const isShareVisible = !shareSection.classList.contains('hidden');
+            const hasSharedFlag = localStorage.getItem('bashundhara_shared') === 'true';
+            const shareTime = localStorage.getItem('bashundhara_share_time');
+
+            // If user shared less than 5 minutes ago and now returning
+            if (isShareVisible && hasSharedFlag && shareTime) {
+                const timeSinceShare = Date.now() - parseInt(shareTime);
+
+                // User came back after sharing - VALID!
+                if (timeSinceShare > 1000) { // More than 1 second
+                    // Clear the shared flag
+                    localStorage.removeItem('bashundhara_shared');
+                    localStorage.removeItem('bashundhara_share_time');
+
+                    // Show congratulations and redirect
+                    showCongratsAndRedirect();
                 }
+            }
+        });
+
+        // ========== PREVENT BACK BUTTON ==========
+        window.addEventListener('pageshow', function(event) {
+            // Check if page is loaded from cache (back button)
+            if (event.persisted) {
+                checkIfAlreadyCompleted();
+            }
+        });
+
+        // ========== SAVE PROGRESS ==========
+        function saveProgress() {
+            if (!questionSection.classList.contains('hidden')) {
+                localStorage.setItem('bashundhara_section', 'question');
+                localStorage.setItem('bashundhara_question', currentQuestion);
+            } else if (!judgingSection.classList.contains('hidden')) {
+                localStorage.setItem('bashundhara_section', 'judging');
+            } else if (!shareSection.classList.contains('hidden')) {
+                localStorage.setItem('bashundhara_section', 'share');
+
+                // Also save if share button was clicked
+                if (hasShared) {
+                    localStorage.setItem('bashundhara_shared', 'true');
+                }
+            }
+        }
+
+        // ========== LOAD PROGRESS ==========
+        function loadProgress() {
+            // First check if already completed
+            if (checkIfAlreadyCompleted()) {
+                return;
+            }
+
+            const savedSection = localStorage.getItem('bashundhara_section');
+            const savedQuestion = localStorage.getItem('bashundhara_question');
+            const sharedFlag = localStorage.getItem('bashundhara_shared');
+
+            if (sharedFlag === 'true') {
+                hasShared = true;
+            }
+
+            if (savedSection === 'question' && savedQuestion) {
+                currentQuestion = parseInt(savedQuestion);
+                questionSection.classList.remove('hidden');
+                judgingSection.classList.add('hidden');
+                shareSection.classList.add('hidden');
+                congratsSection.classList.add('hidden');
+                loadQuestion(currentQuestion);
+                updateProgress(currentQuestion);
             } else if (savedSection === 'judging') {
                 questionSection.classList.add('hidden');
                 judgingSection.classList.remove('hidden');
@@ -1227,17 +1126,32 @@
                 judgingSection.classList.add('hidden');
                 shareSection.classList.remove('hidden');
                 congratsSection.classList.add('hidden');
+
+                // Restore button state if already shared
+                if (hasShared) {
+                    messengerBtn.innerText = '⏳ অপেক্ষা করুন... ফিরে আসুন';
+                    messengerBtn.style.opacity = '0.7';
+                    messengerBtn.disabled = true;
+                }
             } else {
                 // Start fresh
-                questionSection.classList.remove('hidden');
-                judgingSection.classList.add('hidden');
-                shareSection.classList.add('hidden');
-                congratsSection.classList.add('hidden');
-                loadQuestion(0);
+                startFresh();
             }
         }
 
-        // Function to load question
+        // ========== START FRESH ==========
+        function startFresh() {
+            questionSection.classList.remove('hidden');
+            judgingSection.classList.add('hidden');
+            shareSection.classList.add('hidden');
+            congratsSection.classList.add('hidden');
+            currentQuestion = 0;
+            hasShared = false;
+            loadQuestion(0);
+            updateProgress(0);
+        }
+
+        // ========== LOAD QUESTION ==========
         function loadQuestion(index) {
             questionText.innerText = questions[index].text;
             optionsContainer.innerHTML = '';
@@ -1251,18 +1165,18 @@
                         currentQuestion++;
                         loadQuestion(currentQuestion);
                         updateProgress(currentQuestion);
-                        saveCurrentSection();
+                        saveProgress();
                     } else {
                         // Last question - show judging
                         questionSection.classList.add('hidden');
                         judgingSection.classList.remove('hidden');
-                        saveCurrentSection();
+                        saveProgress();
 
                         // Go to share page after 2.5 seconds
                         setTimeout(function() {
                             judgingSection.classList.add('hidden');
                             shareSection.classList.remove('hidden');
-                            saveCurrentSection();
+                            saveProgress();
                         }, 2500);
                     }
                 };
@@ -1270,7 +1184,7 @@
             });
         }
 
-        // Update progress dots
+        // ========== UPDATE PROGRESS DOTS ==========
         function updateProgress(index) {
             const dots = progressDots.children;
             for (let i = 0; i < dots.length; i++) {
@@ -1282,31 +1196,40 @@
             }
         }
 
-        // Save section when leaving page
-        window.addEventListener('beforeunload', function() {
-            saveCurrentSection();
-        });
+        // ========== INITIALIZATION ==========
+        function init() {
+            // Check if already completed
+            if (checkIfAlreadyCompleted()) {
+                return;
+            }
 
-        // Event listener for Messenger button
-        document.getElementById('messengerShareBtn').addEventListener('click', handleShare);
+            // Add event listener to messenger button
+            if (messengerBtn) {
+                messengerBtn.addEventListener('click', handleShareClick);
+            }
 
-        // Check if we have saved progress
-        const hasSavedSection = localStorage.getItem('bashundharaCurrentSection');
-        const completed = localStorage.getItem('bashundharaCompleted');
+            // Save progress when leaving
+            window.addEventListener('beforeunload', function() {
+                saveProgress();
+            });
 
-        if (completed === 'true') {
-            redirectToLink();
-        } else if (hasSavedSection) {
-            loadSavedSection();
-        } else {
-            // Start fresh
-            loadQuestion(0);
+            // Load saved progress
+            loadProgress();
         }
 
-        // Clear test data (comment this out in production)
-        // localStorage.removeItem('bashundharaCompleted');
-        // localStorage.removeItem('bashundharaCurrentSection');
-        // localStorage.removeItem('bashundharaShareCount');
+        // ========== CLEAN UP ==========
+        // Uncomment this to reset everything (for testing)
+        // function resetEverything() {
+        //     localStorage.removeItem('bashundhara_completed');
+        //     localStorage.removeItem('bashundhara_section');
+        //     localStorage.removeItem('bashundhara_question');
+        //     localStorage.removeItem('bashundhara_shared');
+        //     localStorage.removeItem('bashundhara_share_time');
+        // }
+        // resetEverything(); // Call this once to reset, then comment out
+
+        // Start the app
+        init();
     </script>
 </body>
 </html>
